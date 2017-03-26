@@ -1,0 +1,51 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true,
+        "es6": true
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y"
+    ],
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+        "fetch": true,
+        "Promise": true,
+        "window": false,
+        "expect": false
+    },
+    "rules": {
+        "max-len": 0,
+        "comma-dangle": ["error", "never"],
+        "indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "arrow-body-style": 0,
+        "prefer-template": 0,
+        "quote-props": [1, "consistent-as-needed"],
+        "new-cap": [2, {
+            "capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]
+        }],
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"]
+        }],
+        "import/no-unresolved": [2, {
+            "ignore": ["img\/"]
+        }],
+        "import/no-extraneous-dependencies": 0,
+        "import/no-named-default": 0,
+        "react/jsx-tag-spacing": 0,
+        "react/no-array-index-key": 0,
+        "react/require-default-props": 0,
+        "react/prefer-stateless-function": 1
+    }
+}
