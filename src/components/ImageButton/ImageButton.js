@@ -11,23 +11,20 @@ const Button = styled.span`
     align-items: center;
 `;
 
-export default class ActionButton extends Component {
+export default class ImageButton extends Component {
     static propTypes = {
-        title: PropTypes.string.isRequired,
-        component: PropTypes.node
+        title: PropTypes.string.isRequired
     }
     static defaultProps = {
-        component: null
     }
     constructor() {
         super();
         this.state = {};
     }
     render() {
-        const { component, title } = this.props;
+        const { title } = this.props;
         return (
             <Button>
-                {component}
                 {title}
             </Button>
         );

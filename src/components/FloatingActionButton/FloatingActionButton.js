@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { boxLayout } from '../../styles/layouts';
-import ActionButton from '../ActionButton';
+import ImageButton from '../ImageButton';
 
 const Container = styled.div`
     height: 200px;
@@ -37,16 +37,16 @@ const Dropdown = styled.div`
 const ACTION_BUTTONS = [
     {
         title: 'Image',
-        component: ''
-    },
-    {
-        title: 'Embed',
-        component: ''
-    },
-    {
-        title: 'Separator',
-        component: ''
+        component: ImageButton
     }
+    // {
+    //     title: 'Embed',
+    //     component: ''
+    // },
+    // {
+    //     title: 'Separator',
+    //     component: ''
+    // }
 ];
 
 export default class FloatingActionButton extends Component {
@@ -65,19 +65,28 @@ export default class FloatingActionButton extends Component {
     }
     render() {
         const { isOpen } = this.state;
+        const { editorState, setEditorState, focus } = this.props;
         return (
             <Container>
                 <Button onClick={() => this.setState({ isOpen: !isOpen })}>
                     X
                 </Button>
                 <Dropdown isOpen={isOpen}>
-                    {ACTION_BUTTONS.map(item =>
-                        <ActionButton
-                            key={item.title}
-                            title={item.title}
-                            component={item.component}
-                        />
-                    )}
+                    {ACTION_BUTTONS.map((button) => {
+                        const ActionButton = button.component;
+                        return (
+                            <ActionButton
+                                key={button.title}
+                                title={button.title}
+                                editorState={editorState}
+                                setEditorState={setEditorState}
+                                close={() => {
+                                    this.setState({ isOpen: !isOpen });
+                                    focus();
+                                }}
+                            />
+                        );
+                    })}
                 </Dropdown>
             </Container>
         );
