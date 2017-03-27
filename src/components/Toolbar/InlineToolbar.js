@@ -36,6 +36,7 @@ const InlineToolbar = ({ onToggle, editorState }:Object) => {
                 <StyledButton
                     key={item.label}
                     active={currentStyle.has(item.style)}
+                    label={item.label}
                     onToggle={onToggle}
                     style={item.style}
                 />

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import BlockToolbar from './BlockToolbar';
+import InlineToolbar from './InlineToolbar';
 import { actionsColor } from '../../styles/colors';
 import { boxLayout } from '../../styles/layouts';
 
@@ -49,6 +50,10 @@ export default class Toolbar extends Component {
             <Container showToolbar={showToolbar}>
                 <BlockToolbar
                     onToggle={toggleBlockType}
+                    editorState={editorState}
+                />
+                <InlineToolbar
+                    onToggle={() => console.log('inline')}
                     editorState={editorState}
                 />
             </Container>
