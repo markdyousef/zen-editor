@@ -9,12 +9,22 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100px;
     background-color: ${actionsColor.background};
     box-shadow: ${boxLayout.boxShadow};
     border-radius: ${boxLayout.borderRadius};
     border: 1px solid ${boxLayout.border};
     padding: 15px;
+    z-index: 2;
+    transition: all 0.1s ease;
+    visibility: ${props => props.showToolbar ? 'visible' : 'hidden'};
+    cursor: auto;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -5px;
+    }
 `;
 
 export default class Toolbar extends Component {
@@ -23,7 +33,8 @@ export default class Toolbar extends Component {
             _immutable: PropTypes.object
         }),
         toggleBlockType: PropTypes.func.isRequired,
-        focus: PropTypes.func.isRequired
+        focus: PropTypes.func.isRequired,
+        showToolbar: PropTypes.bool.isRequired
     };
     static defaultProps = {
         editorState: {}
@@ -33,9 +44,9 @@ export default class Toolbar extends Component {
         this.state = {};
     }
     render() {
-        const { toggleBlockType, editorState } = this.props;
+        const { toggleBlockType, editorState, showToolbar } = this.props;
         return (
-            <Container>
+            <Container showToolbar={showToolbar}>
                 <BlockToolbar
                     onToggle={toggleBlockType}
                     editorState={editorState}

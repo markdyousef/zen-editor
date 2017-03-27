@@ -31,7 +31,6 @@ export default class App extends Component {
     render() {
         const { editorState } = this.state;
         const showToolbar = !editorState.getSelection().isCollapsed();
-        console.log(showToolbar);
         return (
             <div>
                 <Container onClick={this.focus}>
@@ -43,14 +42,13 @@ export default class App extends Component {
                         onChange={this.onChange}
                     />
                 </Container>
-                {showToolbar &&
-                    <Toolbar
-                        editorState={editorState}
-                        toggleBlockType={this.toggleBlockType}
-                        focus={this.focus}
-                        editorNode={this.editor}
-                    />
-                }
+                <Toolbar
+                    editorState={editorState}
+                    toggleBlockType={this.toggleBlockType}
+                    focus={this.focus}
+                    editorNode={this.editor}
+                    showToolbar={showToolbar}
+                />
             </div>
         );
     }
