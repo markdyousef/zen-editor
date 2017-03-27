@@ -30,23 +30,27 @@ export default class App extends Component {
     }
     render() {
         const { editorState } = this.state;
-        const contentState = editorState.getCurrentContent();
-        console.log(contentState.getSelectionBefore());
+        const showToolbar = !editorState.getSelection().isCollapsed();
+        console.log(showToolbar);
         return (
             <div>
-                <Toolbar
-                    editorState={editorState}
-                    onToggle={this.toggleBlockType}
-                />
                 <Container onClick={this.focus}>
                     <Editor
                         editorState={editorState}
                         spellCheck
-                        ref={(element) => { this.editor = element; }}
+                        ref={(node) => { this.editor = node; }}
                         placeholder="Write something cool..."
                         onChange={this.onChange}
                     />
                 </Container>
+                {showToolbar &&
+                    <Toolbar
+                        editorState={editorState}
+                        toggleBlockType={this.toggleBlockType}
+                        focus={this.focus}
+                        editorNode={this.editor}
+                    />
+                }
             </div>
         );
     }

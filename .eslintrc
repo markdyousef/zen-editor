@@ -48,6 +48,7 @@
         "react/require-default-props": 1,
         "react/prefer-stateless-function": 1,
         "no-unused-vars": 1,
-        "no-confusing-arrow": 1
+        "no-confusing-arrow": 1,
+        "react/no-unused-prop-types": 1,
     }
 }
