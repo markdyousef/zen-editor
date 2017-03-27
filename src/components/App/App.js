@@ -28,6 +28,15 @@ export default class App extends Component {
             )
         );
     }
+    toggleInlineStyle = (inlineStyle) => {
+        const { editorState } = this.state;
+        this.onChange(
+            RichUtils.toggleInlineStyle(
+                editorState,
+                inlineStyle
+            )
+        );
+    }
     render() {
         const { editorState } = this.state;
         const showToolbar = !editorState.getSelection().isCollapsed();
@@ -45,6 +54,7 @@ export default class App extends Component {
                 <Toolbar
                     editorState={editorState}
                     toggleBlockType={this.toggleBlockType}
+                    toggleInlineStyle={this.toggleInlineStyle}
                     focus={this.focus}
                     editorNode={this.editor}
                     showToolbar={showToolbar}

@@ -34,6 +34,7 @@ export default class Toolbar extends Component {
             _immutable: PropTypes.object
         }),
         toggleBlockType: PropTypes.func.isRequired,
+        toggleInlineStyle: PropTypes.func.isRequired,
         focus: PropTypes.func.isRequired,
         showToolbar: PropTypes.bool.isRequired
     };
@@ -45,7 +46,7 @@ export default class Toolbar extends Component {
         this.state = {};
     }
     render() {
-        const { toggleBlockType, editorState, showToolbar } = this.props;
+        const { toggleBlockType, editorState, showToolbar, toggleInlineStyle } = this.props;
         return (
             <Container showToolbar={showToolbar}>
                 <BlockToolbar
@@ -53,7 +54,7 @@ export default class Toolbar extends Component {
                     editorState={editorState}
                 />
                 <InlineToolbar
-                    onToggle={() => console.log('inline')}
+                    onToggle={toggleInlineStyle}
                     editorState={editorState}
                 />
             </Container>
