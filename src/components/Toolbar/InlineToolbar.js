@@ -1,6 +1,6 @@
 // @flow
 import React, { PropTypes } from 'react';
-import StyledButton from './StyleButton';
+import StyleButton from '../StyleButton';
 
 const INLINE_BUTTONS = [
     {
@@ -33,7 +33,7 @@ const InlineToolbar = ({ onToggle, editorState }:Object) => {
     return (
         <div>
             {INLINE_BUTTONS.map(item =>
-                <StyledButton
+                <StyleButton
                     key={item.label}
                     active={currentStyle.has(item.style)}
                     label={item.label}

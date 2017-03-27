@@ -1,7 +1,7 @@
 // @flow
 import React, { PropTypes } from 'react';
 import { RichUtils } from 'draft-js';
-import StyleButton from './StyleButton';
+import StyleButton from '../StyleButton';
 
 const BLOCK_TYPES = [
   { label: 'H1', style: 'header-one' },
