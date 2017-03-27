@@ -1,12 +1,16 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Toolbar from './Toolbar';
 
 it('renders without crashing', () => {
     const props = {
-        onToggle: () => {},
-        editorState: {}
+        editorState: {
+        },
+        toggleBlockType: () => {},
+        toggleInlineStyle: () => {},
+        focus: () => {},
+        showToolbar: true
     };
-    const component = renderer.create(<Toolbar {...props} />);
-    expect(component).toMatchSnapshot(component);
+    const shallowComponent = shallow(<Toolbar {...props} />)
+    expect(shallowComponent).toMatchSnapshot(shallowComponent);
 });

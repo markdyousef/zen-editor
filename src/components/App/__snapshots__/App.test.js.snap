@@ -9,7 +9,7 @@ exports[`[object Object] 1`] = `
         className="public-DraftEditorPlaceholder-root">
         <div
           className="public-DraftEditorPlaceholder-inner"
-          id="placeholder-bssuo">
+          id="placeholder-1anne">
           Write something cool...
         </div>
       </div>
@@ -18,7 +18,7 @@ exports[`[object Object] 1`] = `
         <div
           aria-activedescendant={undefined}
           aria-autocomplete={undefined}
-          aria-describedby="placeholder-bssuo"
+          aria-describedby="placeholder-1anne"
           aria-expanded={undefined}
           aria-haspopup={undefined}
           aria-label={undefined}
@@ -62,13 +62,13 @@ exports[`[object Object] 1`] = `
             <div
               className=""
               data-block={true}
-              data-editor="bssuo"
-              data-offset-key="6ht6f-0-0">
+              data-editor="1anne"
+              data-offset-key="u0ba-0-0">
               <div
                 className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                data-offset-key="6ht6f-0-0">
+                data-offset-key="u0ba-0-0">
                 <span
-                  data-offset-key="6ht6f-0-0"
+                  data-offset-key="u0ba-0-0"
                   style={Object {}}>
                   <br
                     data-text="true" />
@@ -81,57 +81,66 @@ exports[`[object Object] 1`] = `
     </div>
   </div>
   <div
-    className="iQtxkG">
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H1
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H2
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H3
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H4
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H5
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      H6
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      Blockquote
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      UL
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      OL
-    </span>
-    <span
-      className="kLKimt"
-      onClick={[Function]}>
-      Code Block
-    </span>
+    className="crILQj">
+    <div>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        H1
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        H2
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        H3
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        Quote
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        Bulleted List
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        Numbered List
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        Code Block
+      </span>
+    </div>
+    <div>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        B
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        I
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        U
+      </span>
+      <span
+        className="kLKimt"
+        onClick={[Function]}>
+        Hi
+      </span>
+    </div>
   </div>
 </div>
 `;
