@@ -11,6 +11,6 @@ it('renders without crashing', () => {
         focus: () => {},
         showToolbar: true
     };
-    const shallowComponent = shallow(<Toolbar {...props} />)
+    const shallowComponent = shallow(<Toolbar {...props} />);
     expect(shallowComponent).toMatchSnapshot(shallowComponent);
 });
