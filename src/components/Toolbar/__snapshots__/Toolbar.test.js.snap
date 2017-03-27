@@ -1,0 +1,55 @@
+exports[`[object Object] 1`] = `
+<div
+  className="iQtxkG">
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H1
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H2
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H3
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H4
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H5
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    H6
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    Blockquote
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    UL
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    OL
+  </span>
+  <span
+    className="kLKimt"
+    onClick={[Function]}>
+    Code Block
+  </span>
+</div>
+`;

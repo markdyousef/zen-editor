@@ -30,7 +30,7 @@ const Container = styled.div`
     padding: 15px;
 `;
 
-export default class BlockStyleControls extends Component {
+export default class Toolbar extends Component {
     static propTypes = {
         editorState: PropTypes.shape({
             _immutable: PropTypes.object

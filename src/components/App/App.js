@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
-import BlockStyleControls from '../BlockStyleControls';
+import Toolbar from '../Toolbar';
 
 const Container = styled.div`
     width: 100%;
@@ -34,7 +34,7 @@ export default class App extends Component {
         console.log(contentState.getSelectionBefore());
         return (
             <div>
-                <BlockStyleControls
+                <Toolbar
                     editorState={editorState}
                     onToggle={this.toggleBlockType}
                 />

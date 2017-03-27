@@ -1,81 +1,132 @@
 exports[`[object Object] 1`] = `
-<div
-  className="hIwmzU"
-  onClick={[Function]}>
+<div>
   <div
-    className="bTBOOs">
-    Yes
+    className="iQtxkG">
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H1
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H2
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H3
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H4
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H5
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      H6
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      Blockquote
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      UL
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      OL
+    </span>
+    <span
+      className="kLKimt"
+      onClick={[Function]}>
+      Code Block
+    </span>
   </div>
   <div
-    className="DraftEditor-root">
+    className="hIwmzU"
+    onClick={[Function]}>
     <div
-      className="public-DraftEditorPlaceholder-root">
+      className="DraftEditor-root">
       <div
-        className="public-DraftEditorPlaceholder-inner"
-        id="placeholder-328gp">
-        Write something cool...
-      </div>
-    </div>
-    <div
-      className="DraftEditor-editorContainer">
-      <div
-        aria-activedescendant={undefined}
-        aria-autocomplete={undefined}
-        aria-describedby="placeholder-328gp"
-        aria-expanded={undefined}
-        aria-haspopup={undefined}
-        aria-label={undefined}
-        aria-owns={undefined}
-        className="public-DraftEditor-content"
-        contentEditable={true}
-        data-testid={undefined}
-        onBeforeInput={[Function]}
-        onBlur={[Function]}
-        onCompositionEnd={[Function]}
-        onCompositionStart={[Function]}
-        onCopy={[Function]}
-        onCut={[Function]}
-        onDragEnd={[Function]}
-        onDragEnter={[Function]}
-        onDragLeave={[Function]}
-        onDragOver={[Function]}
-        onDragStart={[Function]}
-        onDrop={[Function]}
-        onFocus={[Function]}
-        onInput={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onKeyUp={[Function]}
-        onMouseUp={[Function]}
-        onPaste={[Function]}
-        onSelect={[Function]}
-        role="textbox"
-        spellCheck={true}
-        style={
-          Object {
-            "outline": "none",
-            "whiteSpace": "pre-wrap",
-            "wordWrap": "break-word",
-          }
-        }
-        suppressContentEditableWarning={true}
-        tabIndex={undefined}>
+        className="public-DraftEditorPlaceholder-root">
         <div
-          data-contents="true">
+          className="public-DraftEditorPlaceholder-inner"
+          id="placeholder-ctv70">
+          Write something cool...
+        </div>
+      </div>
+      <div
+        className="DraftEditor-editorContainer">
+        <div
+          aria-activedescendant={undefined}
+          aria-autocomplete={undefined}
+          aria-describedby="placeholder-ctv70"
+          aria-expanded={undefined}
+          aria-haspopup={undefined}
+          aria-label={undefined}
+          aria-owns={undefined}
+          className="public-DraftEditor-content"
+          contentEditable={true}
+          data-testid={undefined}
+          onBeforeInput={[Function]}
+          onBlur={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCopy={[Function]}
+          onCut={[Function]}
+          onDragEnd={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseUp={[Function]}
+          onPaste={[Function]}
+          onSelect={[Function]}
+          role="textbox"
+          spellCheck={true}
+          style={
+            Object {
+              "outline": "none",
+              "whiteSpace": "pre-wrap",
+              "wordWrap": "break-word",
+            }
+          }
+          suppressContentEditableWarning={true}
+          tabIndex={undefined}>
           <div
-            className=""
-            data-block={true}
-            data-editor="328gp"
-            data-offset-key="75m9o-0-0">
+            data-contents="true">
             <div
-              className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-              data-offset-key="75m9o-0-0">
-              <span
-                data-offset-key="75m9o-0-0"
-                style={Object {}}>
-                <br
-                  data-text="true" />
-              </span>
+              className=""
+              data-block={true}
+              data-editor="ctv70"
+              data-offset-key="3matp-0-0">
+              <div
+                className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                data-offset-key="3matp-0-0">
+                <span
+                  data-offset-key="3matp-0-0"
+                  style={Object {}}>
+                  <br
+                    data-text="true" />
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import BlockStyleControls from './BlockStyleControls';
+import Toolbar from './Toolbar';
 
 it('renders without crashing', () => {
     const props = {
         onToggle: () => {},
         editorState: {}
     };
-    const component = renderer.create(<BlockStyleControls {...props} />);
+    const component = renderer.create(<Toolbar {...props} />);
     expect(component).toMatchSnapshot(component);
 });
