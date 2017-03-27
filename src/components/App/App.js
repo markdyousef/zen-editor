@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
 import BlockStyleControls from '../BlockStyleControls';
@@ -10,35 +10,44 @@ const Container = styled.div`
     padding: 40px;
 `;
 
-class App extends Component {
+export default class App extends Component {
     constructor() {
         super();
         this.state = {
             editorState: EditorState.createEmpty()
         };
     }
-    onChange = value => this.setState({ editorState: value })
+    onChange = editorState => this.setState({ editorState })
     focus = () => this.editor.focus();
     toggleBlockType = (blockType) => {
-        console.log(blockType);
+        const { editorState } = this.state;
+        this.onChange(
+            RichUtils.toggleBlockType(
+                editorState,
+                blockType
+            )
+        );
     }
     render() {
         const { editorState } = this.state;
+        const contentState = editorState.getCurrentContent();
+        console.log(contentState.getSelectionBefore());
         return (
-            <Container onClick={this.focus}>
+            <div>
                 <BlockStyleControls
                     editorState={editorState}
                     onToggle={this.toggleBlockType}
                 />
-                <Editor
-                    editorState={editorState}
-                    spellCheck
-                    ref={(element) => { this.editor = element; }}
-                    placeholder="Write something cool..."
-                    onChange={this.onChange}
-                />
-            </Container>
+                <Container onClick={this.focus}>
+                    <Editor
+                        editorState={editorState}
+                        spellCheck
+                        ref={(element) => { this.editor = element; }}
+                        placeholder="Write something cool..."
+                        onChange={this.onChange}
+                    />
+                </Container>
+            </div>
         );
     }
 }
-export default App;
