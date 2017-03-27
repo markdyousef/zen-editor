@@ -17,13 +17,13 @@ const BlockToolbar = ({ onToggle, editorState }:Object) => {
     const blockType = RichUtils.getCurrentBlockType(editorState);
     return (
         <div>
-            {BLOCK_TYPES.map(block =>
+            {BLOCK_TYPES.map(item =>
                 <StyleButton
-                    key={block.label}
-                    active={block.style === blockType}
-                    label={block.label}
+                    key={item.label}
+                    active={item.style === blockType}
+                    label={item.label}
                     onToggle={onToggle}
-                    style={block.style}
+                    style={item.style}
                 />
             )}
         </div>
