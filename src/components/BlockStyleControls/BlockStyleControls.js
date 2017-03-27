@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
+import StyleButton from './StyleButton';
+import { actionsColor } from '../../styles/colors';
+import { boxLayout } from '../../styles/layouts';
 
 const BLOCK_TYPES = [
   { label: 'H1', style: 'header-one' },
@@ -16,16 +19,27 @@ const BLOCK_TYPES = [
 
 const Container = styled.div`
     width: 200px;
-    height: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    background-color: ${actionsColor.background};
+    box-shadow: ${boxLayout.boxShadow};
+    border-radius: ${boxLayout.borderRadius};
+    border: 1px solid ${boxLayout.border};
+    padding: 15px;
 `;
 
 export default class BlockStyleControls extends Component {
     static propTypes = {
         editorState: PropTypes.shape({
             _immutable: PropTypes.object
-        }).isRequired,
+        }),
         onToggle: PropTypes.func.isRequired
     };
+    static defaultProps = {
+        editorState: {}
+    }
     constructor() {
         super();
         this.state = {};
@@ -39,9 +53,18 @@ export default class BlockStyleControls extends Component {
             .getKey();
     }
     render() {
+        const { onToggle } = this.props;
         return (
             <Container>
-                Yes
+                {BLOCK_TYPES.map(block =>
+                    <StyleButton
+                        key={block.label}
+                        active={block.style === this.blockType}
+                        label={block.label}
+                        onToggle={onToggle}
+                        style={block.style}
+                    />
+                )}
             </Container>
         );
     }
