@@ -14,9 +14,6 @@ const Button = styled.button`
     outline: none;
 `;
 
-// const Upload = styled.input`
-//     display: none;
-// `;
 
 export default class ImageButton extends Component {
     static propTypes = {
