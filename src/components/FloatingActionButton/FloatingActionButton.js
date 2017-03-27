@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
+import { boxLayout } from '../../styles/layouts';
+import ActionButton from '../ActionButton';
 
 const Container = styled.div`
     height: 200px;
@@ -14,6 +16,11 @@ const Button = styled.button`
     border: 1px solid #e5e5e5;
     outline: none;
     cursor: pointer;
+`;
+
+const Dropdown = styled.div`
+    width: 200px;
+    ${boxLayout()}
 `;
 
 export default class FloatingActionButton extends Component {
@@ -37,6 +44,11 @@ export default class FloatingActionButton extends Component {
                 <Button onClick={() => this.setState({ isOpen: !isOpen })}>
                     X
                 </Button>
+                {isOpen &&
+                    <Dropdown>
+                        Hello
+                    </Dropdown>
+                }
             </Container>
         );
     }

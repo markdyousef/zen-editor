@@ -9,12 +9,7 @@ const Container = styled.div`
     width: 200px;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    background-color: ${actionsColor.background};
-    box-shadow: ${boxLayout.boxShadow};
-    border-radius: ${boxLayout.borderRadius};
-    border: 1px solid ${boxLayout.border};
-    padding: 15px;
+    ${boxLayout()};
     z-index: 2;
     transition: all 0.1s ease;
     visibility: ${props => props.showToolbar ? 'visible' : 'hidden'};
