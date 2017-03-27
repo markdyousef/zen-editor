@@ -16,7 +16,7 @@ const Button = styled.button`
     cursor: pointer;
 `;
 
-export default class AddButton extends Component {
+export default class FloatingActionButton extends Component {
     static propTypes = {
         editorState: PropTypes.shape({
             _immutable: PropTypes.object

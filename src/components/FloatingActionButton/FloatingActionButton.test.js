@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import AddButton from './AddButton';
+import FloatingActionButton from './FloatingActionButton';
 
 it('renders component correctly', () => {
     const props = {
@@ -8,6 +8,6 @@ it('renders component correctly', () => {
         focus: () => {},
         setEditorState: () => {}
     };
-    const component = renderer.create(<AddButton {...props} />);
+    const component = renderer.create(<FloatingActionButton {...props} />);
     expect(component).toMatchSnapshot(component);
 });
