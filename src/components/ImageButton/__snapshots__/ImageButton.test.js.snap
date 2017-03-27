@@ -1,4 +1,16 @@
 exports[`[object Object] 1`] = `
-<span
-  className="kLKimt" />
+<button
+  className="ghDeUf"
+  onClick={[Function]}>
+  
+  <input
+    accept="image/*"
+    onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file" />
+</button>
 `;
