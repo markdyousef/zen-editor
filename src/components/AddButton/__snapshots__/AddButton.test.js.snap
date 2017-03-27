@@ -1,6 +1,10 @@
 exports[`[object Object] 1`] = `
 <div
   className="kqVIfr">
-  Yeah
+  <button
+    className="cODic"
+    onClick={[Function]}>
+    X
+  </button>
 </div>
 `;

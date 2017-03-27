@@ -3,6 +3,7 @@ import { Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
 import Toolbar from '../Toolbar';
+import AddButton from '../AddButton';
 
 const Container = styled.div`
     width: 100%;
@@ -51,6 +52,11 @@ export default class App extends Component {
                         onChange={this.onChange}
                     />
                 </Container>
+                <AddButton
+                    editorState={editorState}
+                    focus={this.focus}
+                    setEditorState={this.onChange}
+                />
                 <Toolbar
                     editorState={editorState}
                     toggleBlockType={this.toggleBlockType}

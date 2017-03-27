@@ -6,16 +6,37 @@ const Container = styled.div`
     width: 100px;
 `;
 
+const Button = styled.button`
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 999em;
+    border: 1px solid #e5e5e5;
+    outline: none;
+    cursor: pointer;
+`;
+
 export default class AddButton extends Component {
-    static propTypes = {}
+    static propTypes = {
+        editorState: PropTypes.shape({
+            _immutable: PropTypes.object
+        }).isRequired,
+        focus: PropTypes.func.isRequired,
+        setEditorState: PropTypes.func.isRequired
+    }
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            isOpen: false
+        };
     }
     render() {
+        const { isOpen } = this.state;
         return (
             <Container>
-                Yeah
+                <Button onClick={() => this.setState({ isOpen: !isOpen })}>
+                    X
+                </Button>
             </Container>
         );
     }
