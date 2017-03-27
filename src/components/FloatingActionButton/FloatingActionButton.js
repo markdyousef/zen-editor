@@ -20,8 +20,34 @@ const Button = styled.button`
 
 const Dropdown = styled.div`
     width: 200px;
-    ${boxLayout()}
+    ${boxLayout()};
+    z-index: 2;
+    transition: all 0.1s ease;
+    visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+    cursor: auto;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -5px;
+    }
 `;
+
+const ACTION_BUTTONS = [
+    {
+        title: 'Image',
+        component: ''
+    },
+    {
+        title: 'Embed',
+        component: ''
+    },
+    {
+        title: 'Separator',
+        component: ''
+    }
+];
 
 export default class FloatingActionButton extends Component {
     static propTypes = {
@@ -44,11 +70,15 @@ export default class FloatingActionButton extends Component {
                 <Button onClick={() => this.setState({ isOpen: !isOpen })}>
                     X
                 </Button>
-                {isOpen &&
-                    <Dropdown>
-                        Hello
-                    </Dropdown>
-                }
+                <Dropdown isOpen={isOpen}>
+                    {ACTION_BUTTONS.map(item =>
+                        <ActionButton
+                            key={item.title}
+                            title={item.title}
+                            component={item.component}
+                        />
+                    )}
+                </Dropdown>
             </Container>
         );
     }

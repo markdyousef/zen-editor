@@ -12,14 +12,23 @@ const Button = styled.span`
 `;
 
 export default class ActionButton extends Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        component: PropTypes.node
+    }
+    static defaultProps = {
+        component: null
+    }
     constructor() {
         super();
         this.state = {};
     }
     render() {
+        const { component, title } = this.props;
         return (
             <Button>
-                Button
+                {component}
+                {title}
             </Button>
         );
     }
