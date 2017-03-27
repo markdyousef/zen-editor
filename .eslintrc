@@ -47,6 +47,7 @@
         "react/no-array-index-key": 0,
         "react/require-default-props": 1,
         "react/prefer-stateless-function": 1,
-        "no-unused-vars": 1
+        "no-unused-vars": 1,
+        "no-confusing-arrow": 1
     }
 }
