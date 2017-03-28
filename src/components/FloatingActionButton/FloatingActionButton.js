@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { boxLayout } from '../../styles/layouts';
 import ImageButton from '../ImageButton';
+import EmbedButton from '../EmbedButton';
 import { getSelectedBlockNode } from '../../utils/display';
 
 const Container = styled.div`
@@ -42,11 +43,11 @@ const ACTION_BUTTONS = [
     {
         title: 'Image',
         component: ImageButton
+    },
+    {
+        title: 'Embed',
+        component: EmbedButton
     }
-    // {
-    //     title: 'Embed',
-    //     component: ''
-    // },
     // {
     //     title: 'Separator',
     //     component: ''
