@@ -2,10 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { boxLayout } from '../../styles/layouts';
 import ImageButton from '../ImageButton';
+import { getSelectedBlockNode } from '../../utils/display';
 
 const Container = styled.div`
     height: 200px;
     width: 100px;
+    position: fixed;
+    top: ${props => props.top}px;
 `;
 
 const Button = styled.button`
@@ -59,15 +62,98 @@ export default class FloatingActionButton extends Component {
     }
     constructor() {
         super();
+        this.node = null;
+        this.blockType = '';
+        this.blockKey = '';
+        this.blockLength = -1;
         this.state = {
-            isOpen: false
+            isVisible: false,
+            isOpen: false,
+            top: null
         };
     }
+    componentWillReceiveProps(nextProps) {
+        // only show FAB when text length === 0
+        const { editorState } = nextProps;
+        const contentState = editorState.getCurrentContent();
+        const selectionState = editorState.getSelection();
+
+        if (!selectionState.isCollapsed() || selectionState.anchorKey !== selectionState.focusKey) {
+            this.setState({
+                isVisible: false,
+                isOpen: false
+            });
+            return;
+        }
+
+        const block = contentState.getBlockForKey(selectionState.anchorKey);
+        const blockKey = block.getKey();
+
+        if (block.getLength() > 0) {
+            this.setState({
+                isVisible: false,
+                isOpen: false
+            });
+            return;
+        }
+
+        if (block.getType() !== this.blockType) {
+            this.blockType = block.getType();
+            if (block.getLength() === 0) {
+                this.findNode();
+            }
+            this.blockKey = blockKey;
+            return;
+        }
+
+        if (this.blockKey === blockKey) {
+            if (block.getLength() > 0) {
+                this.setState({
+                    isVisible: false,
+                    isOpen: false
+                });
+            } else {
+                this.setState({
+                    isVisible: true
+                });
+            }
+            return;
+        }
+        this.blockKey = blockKey;
+        if (block.getLength() > 0) {
+            this.setState({
+                isVisible: false,
+                isOpen: false
+            });
+        }
+        this.findNode();
+    }
+    findNode = () => {
+        const node = getSelectedBlockNode(window);
+        if (node === this.node) return;
+
+        if (!node) {
+            this.setState({
+                isVisible: false,
+                isOpen: false
+            });
+            return;
+        }
+
+        this.node = node;
+        this.setState({
+            isVisible: true,
+            top: node.offsetTop - 3
+        });
+    }
     render() {
-        const { isOpen } = this.state;
+        const { isOpen, top, isVisible } = this.state;
         const { editorState, setEditorState, focus } = this.props;
+
+        if (!isVisible) return null;
+
         return (
-            <Container>
+            <Container top={top}>
                 <Button onClick={() => this.setState({ isOpen: !isOpen })}>
                     X
                 </Button>
