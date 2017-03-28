@@ -41,6 +41,7 @@ export default class App extends Component {
     render() {
         const { editorState } = this.state;
         const showToolbar = !editorState.getSelection().isCollapsed();
+        console.log(editorState);
         return (
             <div>
                 <Container onClick={this.focus}>

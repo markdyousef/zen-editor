@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { actionsColor } from '../../styles/colors';
+import { Block } from '../../utils/constants';
+import { addNewBlock } from '../../utils/blocks';
 
 const Button = styled.button`
     height: 25px;
@@ -35,13 +37,14 @@ export default class ImageButton extends Component {
         this.input.click();
     }
     onChange = (e) => {
-        const { setEditorState, editorState } = this.props;
+        const { setEditorState, editorState, close } = this.props;
         const file = e.target.files[0];
         // check file type
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
-            console.log(src);
+            setEditorState(addNewBlock(editorState, Block.IMAGE, { src }));
         }
+        close();
     }
     render() {
         const { title } = this.props;
