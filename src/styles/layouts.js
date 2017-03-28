@@ -1,6 +1,6 @@
 export function boxLayout() {
     return `
-        position: fixed;
+        position: absolute;
         background: #fff;
         boxShadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         borderRadius: 3px;
