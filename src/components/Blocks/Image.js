@@ -4,12 +4,17 @@ import styled from 'styled-components';
 import { EditorBlock } from 'draft-js';
 import { getCurrentBlock } from '../../utils/blocks';
 
+const Container = styled.div`
+    position: relative;
+`;
+
 const Image = styled.img`
     width: 50px;
     height: 50px;
 `;
 
 const ImageBlock = ({ ...props }:Object) => {
+    console.log(props);
     const { block, blockProps } = props;
     const { editorState } = blockProps;
     const data = block.getData();
@@ -19,9 +24,9 @@ const ImageBlock = ({ ...props }:Object) => {
     if (src) {
         return (
             <div>
-                <div>
+                <Container>
                     <Image role="presentation" selected={selected} src={src} />
-                </div>
+                </Container>
                 <figcaption>
                     <EditorBlock {...props} />
                 </figcaption>
