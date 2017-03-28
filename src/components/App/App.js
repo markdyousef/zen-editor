@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Toolbar from '../Toolbar';
 import FloatingActionButton from '../FloatingActionButton';
 import customRenderer from '../../utils/customRenderer';
+import { Block } from '../../utils/constants';
 
 const Container = styled.div`
     padding: 30px 30px;
@@ -28,9 +29,21 @@ export default class App extends Component {
         };
     }
     onChange = editorState => this.setState({ editorState })
+    onTab = (event) => {
+        const { editorState } = this.state;
+        // depth on ul and ol
+        const levels = 2;
+        const newEditorState = RichUtils.onTab(event, editorState, levels);
+        if (newEditorState !== editorState) {
+            this.onChange(newEditorState);
+        }
+    };
+    getEditorState = () => this.state.editorState;
     focus = () => this.editor.focus();
     toggleBlockType = (blockType) => {
         const { editorState } = this.state;
+        const type = RichUtils.getCurrentBlockType(editorState);
+        if (type.indexOf(`${Block.ATOMIC}:`) === 0) return;
         this.onChange(
             RichUtils.toggleBlockType(
                 editorState,
@@ -60,6 +73,7 @@ export default class App extends Component {
                         placeholder="Write something cool..."
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
+                        onTab={this.onTab}
                     />
                     <FloatingActionButton
                         editorState={editorState}

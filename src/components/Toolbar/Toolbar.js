@@ -75,23 +75,23 @@ export default class Toolbar extends Component {
         // TODO: fix this shit
         const top = parentBoundary.top + selectionBoundary.height;
 
-        console.log('selection-width ', selectionBoundary.width);
-        console.log('toolbar-width ', toolbarBoundary.width);
+        // console.log('selection-width ', selectionBoundary.width);
+        // console.log('toolbar-width ', toolbarBoundary.width);
         let left;
         const widthDiff = selectionBoundary.width - toolbarBoundary.width;
-        console.log('width diff: ' + widthDiff);
+        // console.log('width diff: ' + widthDiff);
         if (widthDiff >= 0) {
             left = widthDiff / 2;
         } else {
-            console.log('section-left', selectionBoundary.left);
-            console.log('parent-left', parentBoundary.left);
+            // console.log('section-left', selectionBoundary.left);
+            // console.log('parent-left', parentBoundary.left);
             left = (selectionBoundary.left - parentBoundary.left) + (widthDiff / 2);
         }
         this.setState({
             top,
             left
         });
-        console.log('left', left);
+        // console.log('left', left);
     }
     render() {
         const { toggleBlockType, editorState, showToolbar, toggleInlineStyle } = this.props;
