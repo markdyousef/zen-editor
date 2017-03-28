@@ -7,7 +7,9 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
-    showToolbar={true}>
+    left={0}
+    showToolbar={true}
+    top={0}>
     <BlockToolbar
         editorState={Object {}}
         onToggle={[Function]} />
@@ -17,7 +19,9 @@ ShallowWrapper {
 </styled.div>,
   "nodes": Array [
     <styled.div
-      showToolbar={true}>
+      left={0}
+      showToolbar={true}
+      top={0}>
       <BlockToolbar
             editorState={Object {}}
             onToggle={[Function]} />
@@ -33,6 +37,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <Toolbar
+        editorNode={Object {}}
         editorState={Object {}}
         focus={[Function]}
         showToolbar={true}
@@ -45,6 +50,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
+          "editorNode": Object {},
           "editorState": Object {},
           "focus": [Function],
           "showToolbar": true,
@@ -52,7 +58,10 @@ ShallowWrapper {
           "toggleInlineStyle": [Function],
         },
         "refs": Object {},
-        "state": Object {},
+        "state": Object {
+          "left": 0,
+          "top": 0,
+        },
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -72,7 +81,9 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
-          showToolbar={true}>
+          left={0}
+          showToolbar={true}
+          top={0}>
           <BlockToolbar
                     editorState={Object {}}
                     onToggle={[Function]} />
@@ -82,7 +93,9 @@ ShallowWrapper {
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
-          showToolbar={true}>
+          left={0}
+          showToolbar={true}
+          top={0}>
           <BlockToolbar
                     editorState={Object {}}
                     onToggle={[Function]} />
@@ -102,6 +115,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Toolbar
+    editorNode={Object {}}
     editorState={Object {}}
     focus={[Function]}
     showToolbar={true}

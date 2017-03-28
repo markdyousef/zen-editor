@@ -7,7 +7,7 @@ import FloatingActionButton from '../FloatingActionButton';
 import customRenderer from '../../utils/customRenderer';
 
 const Container = styled.div`
-    padding: 15px 30px;
+    padding: 30px 30px;
     box-sizing: border-box;
     position: relative;
 `;

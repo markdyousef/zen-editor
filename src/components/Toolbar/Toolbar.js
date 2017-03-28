@@ -72,7 +72,10 @@ export default class Toolbar extends Component {
         const parentBoundary = parent.getBoundingClientRect();
 
         // logic for setting toolbar position
-        const top = selectionBoundary.top + parentBoundary.top;
+        // TODO: fix this shit
+        const top = parentBoundary.top + 40;
+        console.log(selectionBoundary.top);
+        console.log(parentBoundary.top);
         let left;
         const widthDiff = selectionBoundary.width - toolbarBoundary.width;
         if (widthDiff >= 0) {
@@ -84,6 +87,8 @@ export default class Toolbar extends Component {
             top,
             left
         });
+        console.log('top', top);
+        console.log('left', left);
     }
     render() {
         const { toggleBlockType, editorState, showToolbar, toggleInlineStyle } = this.props;

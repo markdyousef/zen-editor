@@ -144,7 +144,7 @@ export default class FloatingActionButton extends Component {
         this.node = node;
         this.setState({
             isVisible: true,
-            top: node.offsetTop - 8
+            top: node.offsetTop - 4
         });
     }
     render() {
