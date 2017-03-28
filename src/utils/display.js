@@ -1,6 +1,24 @@
 // @flow
 
 /**
+*   Returns the 'boundingClientRect' of the passed selection
+**/
+export const getSelectionRect = (selected:Object) => {
+    const currentRect = selected.getRangeAt(0).getBoundingClientRect();
+    let rect = currentRect && currentRect.top ? currentRect : selected.getRangeAt(0).getClientRects()[0];
+
+    if (!rect) {
+        if (selected.anchorNode && selected.anchorNode.getBoundingClientRect) {
+            rect = selected.anchorNode.getBoundingClientRect();
+            rect.isEmptyLine = true;
+        } else {
+            return null;
+        }
+    }
+    return rect;
+};
+
+/**
 *   returns the native selection node
 **/
 export const getSelection = (root:Object) => {
