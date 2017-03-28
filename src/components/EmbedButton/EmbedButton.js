@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
-import { Entity, AtomicBlockUtils } from 'draft-js';
+import { AtomicBlockUtils } from 'draft-js';
 
 const Button = styled.button`
     height: 25px;
@@ -32,7 +32,11 @@ export default class EmbedButton extends Component {
     }
     addEmbedURL = (url) => {
         const { setEditorState, editorState } = this.props;
-        const entityKey = Entity.create('embed', 'IMMUTABLE', { url });
+        const contentState = editorState.getCurrentContent();
+        const entityKey = contentState
+            .createEntity('embed', 'IMMUTABLE', { url })
+            .getLastCreatedEntityKey();
+
         setEditorState(
             AtomicBlockUtils.insertAtomicBlock(
                 editorState,
