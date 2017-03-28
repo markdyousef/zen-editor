@@ -4,13 +4,13 @@ import { RichUtils } from 'draft-js';
 import StyleButton from '../StyleButton';
 
 const BLOCK_TYPES = [
-  { label: 'H1', style: 'header-one' },
-  { label: 'H2', style: 'header-two' },
-  { label: 'H3', style: 'header-three' },
-  { label: 'Quote', style: 'blockquote' },
-  { label: 'Bulleted List', style: 'unordered-list-item' },
-  { label: 'Numbered List', style: 'ordered-list-item' },
-  { label: 'Code Block', style: 'code-block' }
+  { label: 'H1', style: 'header-one', icon: 'glyph-title' },
+  { label: 'H2', style: 'header-two', icon: 'glyph-subtitle' },
+  { label: 'H3', style: 'header-three', icon: '' },
+  { label: 'Quote', style: 'blockquote', icon: 'glyph-quote' },
+  { label: 'Bulleted List', style: 'unordered-list-item', icon: 'glyph-list' },
+  { label: 'Numbered List', style: 'ordered-list-item', icon: 'glyph-list' },
+  { label: 'Code Block', style: 'code-block', icon: 'glyph-code' }
 ];
 
 const BlockToolbar = ({ onToggle, editorState }:Object) => {
@@ -24,6 +24,7 @@ const BlockToolbar = ({ onToggle, editorState }:Object) => {
                     label={item.label}
                     onToggle={onToggle}
                     style={item.style}
+                    icon={item.icon}
                 />
             )}
         </div>

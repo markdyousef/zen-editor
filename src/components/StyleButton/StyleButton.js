@@ -16,7 +16,8 @@ export default class StyleButton extends Component {
         onToggle: PropTypes.func.isRequired,
         style: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
-        active: PropTypes.bool.isRequired
+        active: PropTypes.bool.isRequired,
+        icon: PropTypes.string
     }
     constructor() {
         super();
@@ -28,9 +29,10 @@ export default class StyleButton extends Component {
         onToggle(style);
     }
     render() {
-        const { label, active } = this.props;
+        const { label, active, icon } = this.props;
         return (
             <Button active={active} onClick={this.onToggle}>
+                {icon && <i className={icon} style={{ marginRight: '5px' }} />}
                 {label}
             </Button>
         );
