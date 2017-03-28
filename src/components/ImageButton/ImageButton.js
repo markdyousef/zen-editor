@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
-import { actionsColor } from '../../styles/colors';
 import { Block } from '../../utils/constants';
 import { addNewBlock } from '../../utils/blocks';
 
