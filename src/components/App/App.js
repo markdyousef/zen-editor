@@ -54,9 +54,9 @@ export default class App extends Component {
             <Container>
                 <EditorContainer>
                     <Editor
+                        ref={(node) => { this.editor = node; }}
                         editorState={editorState}
                         spellCheck
-                        ref={(node) => { this.editor = node; }}
                         placeholder="Write something cool..."
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
