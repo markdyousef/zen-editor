@@ -15,3 +15,6 @@ node_modules
 
 #flow
 flow-typed
+
+#OS
+.DS_Store
