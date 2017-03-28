@@ -6,7 +6,6 @@ import { addNewBlock } from '../../utils/blocks';
 
 const Button = styled.button`
     height: 25px;
-    color: ${props => props.active ? actionsColor.textActive : actionsColor.text};
     cursor: pointer;
     font-size: 12px;
     display: flex;
@@ -25,12 +24,6 @@ export default class ImageButton extends Component {
         }).isRequired,
         setEditorState: PropTypes.func.isRequired,
         close: PropTypes.func.isRequired
-    }
-    static defaultProps = {
-    }
-    constructor() {
-        super();
-        this.state = {};
     }
     onClick = () => {
         this.input.value = null;

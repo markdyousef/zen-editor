@@ -9,7 +9,7 @@ exports[`[object Object] 1`] = `
         className="public-DraftEditorPlaceholder-root">
         <div
           className="public-DraftEditorPlaceholder-inner"
-          id="placeholder-db61n">
+          id="placeholder-c3epn">
           Write something cool...
         </div>
       </div>
@@ -18,7 +18,7 @@ exports[`[object Object] 1`] = `
         <div
           aria-activedescendant={undefined}
           aria-autocomplete={undefined}
-          aria-describedby="placeholder-db61n"
+          aria-describedby="placeholder-c3epn"
           aria-expanded={undefined}
           aria-haspopup={undefined}
           aria-label={undefined}
@@ -62,13 +62,13 @@ exports[`[object Object] 1`] = `
             <div
               className=""
               data-block={true}
-              data-editor="db61n"
-              data-offset-key="a91u4-0-0">
+              data-editor="c3epn"
+              data-offset-key="evgtg-0-0">
               <div
                 className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                data-offset-key="a91u4-0-0">
+                data-offset-key="evgtg-0-0">
                 <span
-                  data-offset-key="a91u4-0-0"
+                  data-offset-key="evgtg-0-0"
                   style={Object {}}>
                   <br
                     data-text="true" />
@@ -80,20 +80,30 @@ exports[`[object Object] 1`] = `
       </div>
     </div>
     <div
-      className="gACtEH">
+      className="iBcYDk">
       <div>
         <span
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className=".glyph-title" />
+            className="glyph-title"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           H1
         </span>
         <span
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className=".glyph-subtitle" />
+            className="glyph-subtitle"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           H2
         </span>
         <span
@@ -106,28 +116,48 @@ exports[`[object Object] 1`] = `
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className="glyph-quote" />
+            className="glyph-quote"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           Quote
         </span>
         <span
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className=".glyph-list" />
+            className="glyph-list"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           Bulleted List
         </span>
         <span
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className=".glyph-list" />
+            className="glyph-list"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           Numbered List
         </span>
         <span
           className="kLKimt"
           onClick={[Function]}>
           <i
-            className=".glyph-code" />
+            className="glyph-code"
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            } />
           Code Block
         </span>
       </div>
