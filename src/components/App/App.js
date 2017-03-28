@@ -7,9 +7,17 @@ import FloatingActionButton from '../FloatingActionButton';
 import customRenderer from '../../utils/customRenderer';
 
 const Container = styled.div`
-    width: 100%;
-    height: 100%;
-    padding: 40px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    position: relative;
+`;
+
+const EditorContainer = styled.div`
+    cursor: text;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 700px;
 `;
 
 export default class App extends Component {
@@ -43,8 +51,8 @@ export default class App extends Component {
         const { editorState } = this.state;
         const showToolbar = !editorState.getSelection().isCollapsed();
         return (
-            <div>
-                <Container onClick={this.focus}>
+            <Container>
+                <EditorContainer>
                     <Editor
                         editorState={editorState}
                         spellCheck
@@ -53,21 +61,21 @@ export default class App extends Component {
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
                     />
-                </Container>
-                <FloatingActionButton
-                    editorState={editorState}
-                    focus={this.focus}
-                    setEditorState={this.onChange}
-                />
-                <Toolbar
-                    editorState={editorState}
-                    toggleBlockType={this.toggleBlockType}
-                    toggleInlineStyle={this.toggleInlineStyle}
-                    focus={this.focus}
-                    editorNode={this.editor}
-                    showToolbar={showToolbar}
-                />
-            </div>
+                    <FloatingActionButton
+                        editorState={editorState}
+                        focus={this.focus}
+                        setEditorState={this.onChange}
+                    />
+                    <Toolbar
+                        editorState={editorState}
+                        toggleBlockType={this.toggleBlockType}
+                        toggleInlineStyle={this.toggleInlineStyle}
+                        focus={this.focus}
+                        editorNode={this.editor}
+                        showToolbar={showToolbar}
+                    />
+                </EditorContainer>
+            </Container>
         );
     }
 }

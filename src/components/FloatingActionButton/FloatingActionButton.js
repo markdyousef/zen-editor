@@ -7,8 +7,9 @@ import { getSelectedBlockNode } from '../../utils/display';
 const Container = styled.div`
     height: 200px;
     width: 100px;
-    position: fixed;
+    position: absolute;
     top: ${props => props.top}px;
+    left: -40px;
 `;
 
 const Button = styled.button`
@@ -100,7 +101,7 @@ export default class FloatingActionButton extends Component {
         if (block.getType() !== this.blockType) {
             this.blockType = block.getType();
             if (block.getLength() === 0) {
-                this.findNode();
+                setTimeout(this.findNode, 0);
             }
             this.blockKey = blockKey;
             return;
@@ -126,7 +127,7 @@ export default class FloatingActionButton extends Component {
                 isOpen: false
             });
         }
-        this.findNode();
+        setTimeout(this.findNode, 0);
     }
     findNode = () => {
         const node = getSelectedBlockNode(window);
@@ -143,7 +144,7 @@ export default class FloatingActionButton extends Component {
         this.node = node;
         this.setState({
             isVisible: true,
-            top: node.offsetTop - 3
+            top: node.offsetTop - 8
         });
     }
     render() {
