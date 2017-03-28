@@ -4,6 +4,7 @@ import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
 import Toolbar from '../Toolbar';
 import FloatingActionButton from '../FloatingActionButton';
+import customRenderer from '../../utils/customRenderer';
 
 const Container = styled.div`
     width: 100%;
@@ -41,7 +42,6 @@ export default class App extends Component {
     render() {
         const { editorState } = this.state;
         const showToolbar = !editorState.getSelection().isCollapsed();
-        console.log(editorState);
         return (
             <div>
                 <Container onClick={this.focus}>
@@ -51,6 +51,7 @@ export default class App extends Component {
                         ref={(node) => { this.editor = node; }}
                         placeholder="Write something cool..."
                         onChange={this.onChange}
+                        blockRendererFn={customRenderer(editorState, this.onChange)}
                     />
                 </Container>
                 <FloatingActionButton

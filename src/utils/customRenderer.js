@@ -2,7 +2,7 @@
 import { Block } from './constants';
 import ImageBlock from '../components/Blocks/Image';
 
-export default (editorState:Object, getEditorState:Function) => (contentBlock:Object) => {
+export default (editorState:Object, setEditorState:Function) => (contentBlock:Object) => {
     const type = contentBlock.getType();
     switch (type) {
     case Block.IMAGE:
@@ -10,9 +10,9 @@ export default (editorState:Object, getEditorState:Function) => (contentBlock:Ob
             component: ImageBlock,
             props: {
                 editorState,
-                getEditorState
+                setEditorState
             }
-        }
+        };
     default:
         return null;
     }

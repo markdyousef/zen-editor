@@ -9,26 +9,26 @@ const Image = styled.img`
     height: 50px;
 `;
 
-const ImageBlock = ({ block, blockProps }) => {
+const ImageBlock = ({ ...props }:Object) => {
+    const { block, blockProps } = props;
     const { editorState } = blockProps;
     const data = block.getData();
     const src = data.get('src');
     const currentBlock = getCurrentBlock(editorState);
     const selected = currentBlock.getKey() === block.getKey();
-
-    if (src !== null) {
+    if (src) {
         return (
             <div>
                 <div>
                     <Image role="presentation" selected={selected} src={src} />
                 </div>
                 <figcaption>
-                    <EditorBlock block={block} blockProps={blockProps} />
+                    <EditorBlock {...props} />
                 </figcaption>
             </div>
         );
     }
-    return <EditorBlock block={block} blockProps={blockProps} />;
+    return <EditorBlock {...props} />;
 };
 
 ImageBlock.propTypes = {
@@ -39,3 +39,5 @@ ImageBlock.propTypes = {
         editorState: PropTypes.object
     }).isRequired
 };
+
+export default ImageBlock;
