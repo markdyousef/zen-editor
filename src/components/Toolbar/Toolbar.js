@@ -7,19 +7,16 @@ import { actionsColor } from '../../styles/colors';
 import { boxLayout } from '../../styles/layouts';
 
 // Toolbar height
-const toolbarHeight = 200;
+// const toolbarHeight = 200;
 
 const Container = styled.div`
     width: 200px;
-    height: ${toolbarHeight}px;
-    left: ${props => props.left}px;
-    top: ${props => props.top}px;
+    ${''/* height: ${toolbarHeight}px; */}
     display: flex;
     flex-direction: column;
     ${boxLayout()};
     z-index: 2;
-    ${''/* transition: all 0.1s ease; */}
-    visibility: ${props => props.showToolbar ? 'visible' : 'hidden'};
+    transform: translate(-50%) scale(0);
     cursor: auto;
     &:after {
         content: '';

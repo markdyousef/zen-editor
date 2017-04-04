@@ -20,7 +20,7 @@ body {
     line-height: 1.54
 }
 
-/*h1 {
+h1 {
     font-size: 48px;
     font-weight: bold;
     letter-spacing: -.024em;
@@ -52,7 +52,7 @@ ol {
 li {
     font-size: 21px;
     line-height: 1,78;
-}*/
+}
 
 [class^="glyph-"], [class*=" glyph-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
