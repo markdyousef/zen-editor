@@ -47,6 +47,7 @@ export const addNewBlock = (editorState:Object, newType:String = Block.UNSTYLED,
             type: newType,
             data: getDefaultBlockData(newType, initialData)
         });
+        console.log(newBlock);
 
         const newContentState = contentState.merge({
             blockMap: blockMap.set(key, newBlock),
