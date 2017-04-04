@@ -10,6 +10,8 @@ const AtomicBlock = ({ ...props }:Object) => {
     const entity = contentState.getEntity(block.getEntityAt(0));
     const data = entity.getData();
     const type = entity.getType();
+    console.log(data);
+    console.log(type);
     console.log(blockProps);
     if (blockProps.components[type]) {
         const Component = blockProps.components[type];

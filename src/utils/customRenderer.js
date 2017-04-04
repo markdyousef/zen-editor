@@ -7,6 +7,8 @@ import SeparatorBlock from '../components/Blocks/Separator';
 
 export default (editorState:Object, setEditorState:Function) => (contentBlock:Object) => {
     const type = contentBlock.getType();
+
+    // TODO: Image always comes as type.unstyled
     console.log(type);
     switch (type) {
     case Block.IMAGE:
@@ -24,7 +26,8 @@ export default (editorState:Object, setEditorState:Function) => (contentBlock:Ob
             props: {
                 components: {
                     embed: EmbedBlock,
-                    separator: SeparatorBlock
+                    separator: SeparatorBlock,
+                    image: ImageBlock
                 }
             }
         };
