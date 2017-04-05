@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { EditorState, RichUtils } from 'draft-js';
-import Editor from 'draft-js-plugins-editor';
-// import createImagePlugin from 'draft-js-image-plugin';
+import { EditorState, RichUtils, Editor } from 'draft-js';
 // TODO: add custom styling
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
@@ -23,10 +21,6 @@ const EditorContainer = styled.div`
     margin-top: 10px;
     max-width: 700px;
 `;
-
-// const imagePlugin = createImagePlugin();
-//
-// const plugins = [imagePlugin];
 
 export default class App extends Component {
     constructor() {
