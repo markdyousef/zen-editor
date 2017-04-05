@@ -1,6 +1,8 @@
 // @flow
-import { EditorState } from 'draft-js';
+import { genKey, EditorState, ContentBlock, Modifier, BlockMapBuilder } from 'draft-js';
+import { List, Map } from 'immutable';
 import { Block } from './constants';
+
 
 /**
 *   Returns default block-level metadata for various block type.
@@ -54,7 +56,61 @@ export const addNewBlock = (editorState:Object, newType:String = Block.UNSTYLED,
             selectionAfter: selectionState
         });
 
-        return EditorState.push(editorState, newContentState, 'change-block-type');
+        return EditorState.push(editorState, newContentState, 'insert-fragment');
     }
     return editorState;
+};
+
+export const insertDataBlock = (editorState:Object, data:Object) => {
+    const contentState = editorState.getCurrentContent();
+    const selectionState = editorState.getSelection();
+
+    const afterRemoval = Modifier.removeRange(
+        contentState,
+        selectionState,
+        'backward'
+    );
+
+    const targetSelection = afterRemoval.getSelectionAfter();
+    const afterSplit = Modifier.splitBlock(afterRemoval, targetSelection);
+    const insertionTarget = afterSplit.getSelectionAfter();
+
+    const asAtomicBlock = Modifier.setBlockType(
+        afterSplit,
+        insertionTarget,
+        'atomic'
+    );
+
+    const block = new ContentBlock({
+        key: genKey(),
+        type: 'atomic',
+        text: '',
+        characterList: new List(),
+        data: new Map(data)
+    });
+
+    const fragmentArray = [
+        block,
+        new ContentBlock({
+            key: genKey(),
+            type: 'unstyled',
+            text: '',
+            characterList: new List()
+        })
+    ];
+
+    const fragment = BlockMapBuilder.createFromArray(fragmentArray);
+
+    const withAtomicBlock = Modifier.replaceWithFragment(
+        asAtomicBlock,
+        insertionTarget,
+        fragment
+    );
+
+    const newContent = withAtomicBlock.merge({
+        selectionBefore: selectionState,
+        selectionAfter: withAtomicBlock.getSelectionAfter().set('hasFocus', true)
+    });
+
+    return EditorState.push(editorState, newContent, 'insert-fragment');
 };

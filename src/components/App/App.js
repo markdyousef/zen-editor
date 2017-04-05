@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import { EditorState, RichUtils, Editor } from 'draft-js';
+// TODO: add custom styling
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';
 import Toolbar from '../Toolbar';
@@ -74,6 +75,7 @@ export default class App extends Component {
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
                         onTab={this.onTab}
+                        // plugin={plugins}
                     />
                     <FloatingActionButton
                         editorState={editorState}

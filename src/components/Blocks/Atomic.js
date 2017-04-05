@@ -6,13 +6,10 @@ const Container = styled.div`
 `;
 
 const AtomicBlock = ({ ...props }:Object) => {
-    const { blockProps, block, contentState } = props;
-    const entity = contentState.getEntity(block.getEntityAt(0));
-    const data = entity.getData();
-    const type = entity.getType();
-    console.log(blockProps);
-    if (blockProps.components[type]) {
-        const Component = blockProps.components[type];
+    const { block, blockProps } = props;
+    const data = block.getData().toJS();
+    if (blockProps.components[data.type]) {
+        const Component = blockProps.components[data.type];
         return (
             <Container>
                 <Component data={data} />
@@ -25,7 +22,8 @@ const AtomicBlock = ({ ...props }:Object) => {
 
 AtomicBlock.propTypes = {
     block: PropTypes.shape({
-        getEntityAt: PropTypes.func.isRequired
+        getEntityAt: PropTypes.func,
+        getData: PropTypes.func
     }).isRequired,
     blockProps: PropTypes.shape({
         components: PropTypes.object

@@ -1,15 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { actionsColor } from '../../styles/colors';
-
-const Button = styled.span`
-    height: 25px;
-    color: ${props => props.active ? actionsColor.textActive : actionsColor.text};
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-`;
+import ActionIcon from '../ActionIcon';
 
 export default class StyleButton extends Component {
     static propTypes = {
@@ -17,7 +9,7 @@ export default class StyleButton extends Component {
         style: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
         active: PropTypes.bool.isRequired,
-        icon: PropTypes.string
+        Icon: PropTypes.func
     }
     constructor() {
         super();
@@ -29,12 +21,12 @@ export default class StyleButton extends Component {
         onToggle(style);
     }
     render() {
-        const { label, active, icon } = this.props;
+        const { label, active, Icon } = this.props;
         return (
-            <Button active={active} onClick={this.onToggle}>
-                {icon && <i className={icon} style={{ marginRight: '5px' }} />}
+            <ActionIcon active={active} onClick={this.onToggle}>
+                {Icon && <Icon />}
                 {label}
-            </Button>
+            </ActionIcon>
         );
     }
 }

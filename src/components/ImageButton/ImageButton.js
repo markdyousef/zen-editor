@@ -1,18 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import { AtomicBlockUtils, EditorState } from 'draft-js';
 import styled from 'styled-components';
 import { Block } from '../../utils/constants';
-import { addNewBlock } from '../../utils/blocks';
-
-const Button = styled.button`
-    height: 25px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border: none;
-    outline: none;
-`;
+import { insertDataBlock } from '../../utils/blocks';
+import Icon from '../../icons/image';
+import ActionIcon from '../ActionIcon';
 
 
 export default class ImageButton extends Component {
@@ -30,18 +22,23 @@ export default class ImageButton extends Component {
     }
     onChange = (e) => {
         const { setEditorState, editorState, close } = this.props;
+        e.preventDefault();
+
         const file = e.target.files[0];
-        // check file type
+        // // check file type
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
-            setEditorState(addNewBlock(editorState, Block.IMAGE, { src }));
+            const data = { src, type: 'image', display: 'medium' };
+            console.log(data);
+            setEditorState(insertDataBlock(editorState, data));
         }
         close();
     }
     render() {
         const { title } = this.props;
         return (
-            <Button onClick={this.onClick}>
+            <ActionIcon onClick={this.onClick}>
+                <Icon />
                 {title}
                 <input
                     type="file"
@@ -50,7 +47,7 @@ export default class ImageButton extends Component {
                     onChange={this.onChange}
                     style={{ display: 'none' }}
                 />
-            </Button>
+            </ActionIcon>
         );
     }
 }

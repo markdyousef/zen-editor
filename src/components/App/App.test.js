@@ -1,12 +1,9 @@
+// @flow
 import React from 'react';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import App from './App';
 
 it('renders component correctly', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-
-    const component = renderer.create(<App />);
-    expect(component).toMatchSnapshot(component);
+    const shallowComponent = shallow(<App />);
+    expect(shallowComponent).toMatchSnapshot(shallowComponent);
 });
