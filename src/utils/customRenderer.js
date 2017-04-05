@@ -9,6 +9,7 @@ export default (editorState:Object, setEditorState:Function) => (contentBlock:Ob
     const type = contentBlock.getType();
 
     // TODO: Image always comes as type.unstyled
+    console.log(type);
     switch (type) {
     case Block.IMAGE:
         return {

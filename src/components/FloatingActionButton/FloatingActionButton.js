@@ -172,10 +172,7 @@ export default class FloatingActionButton extends Component {
                                 title={button.title}
                                 editorState={editorState}
                                 setEditorState={setEditorState}
-                                close={() => {
-                                    this.setState({ isOpen: !isOpen });
-                                    focus();
-                                }}
+                                close={() => this.setState({ isOpen: !isOpen })}
                             />
                         );
                     })}

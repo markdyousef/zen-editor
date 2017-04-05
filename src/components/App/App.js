@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { EditorState, RichUtils, convertFromRaw } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
-import createImagePlugin from 'draft-js-image-plugin';
+// import createImagePlugin from 'draft-js-image-plugin';
 // TODO: add custom styling
 import 'draft-js/dist/Draft.css';
 import styled from 'styled-components';

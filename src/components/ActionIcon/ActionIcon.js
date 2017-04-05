@@ -13,20 +13,22 @@ const Button = styled.button`
     border: none;
     outline: none;
     margin-bottom: 5px;
+    color: ${props => props.active ? actionsColor.textActive : actionsColor.text};
     & svg {
         padding: 5px;
-        border: 1px solid #000;
+        border: 1px solid ${actionsColor.text};
         border-radius: 3px;
         height: 12px;
         width: 12px;
         margin-right: 5px;
+        fill: ${props => props.active ? actionsColor.textActive : actionsColor.text}
     }
 `;
 
 
-export default ({ children, onClick }:Object) => {
+export default ({ children, onClick, active }:Object) => {
     return (
-        <Button onClick={onClick}>
+        <Button onClick={onClick} active={active}>
             {children}
         </Button>
     );

@@ -11,6 +11,7 @@ const Image = styled.img`
 `;
 
 const ImageBlock = ({ data }:Object) => {
+    console.log(data);
     return (
         <div>
             <Container>

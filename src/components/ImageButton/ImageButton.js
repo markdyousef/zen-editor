@@ -29,6 +29,7 @@ export default class ImageButton extends Component {
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
             const data = { src, type: 'image', display: 'medium' };
+            console.log(data);
             setEditorState(insertDataBlock(editorState, data));
         }
         close();

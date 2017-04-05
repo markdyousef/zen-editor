@@ -27,6 +27,7 @@ const INLINE_BUTTONS = [
     {
         label: 'Hi',
         style: 'HIGHLIGHT',
+        Icon: underlineIcon,
         description: 'Highlight selection'
     }
 ];
