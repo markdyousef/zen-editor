@@ -1,7 +1,14 @@
 {
   "name": "zen-editor",
   "version": "0.1.0",
-  "private": true,
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markdyousef/zen-editor.git"
+  },
+  "author": "markdyousef",
+  "license": "MIT",
+  "homepage": "https://github.com/markdyousef/zen-editor",
   "dependencies": {
     "draft-js": "^0.10.0",
     "react": "^15.4.2",
@@ -60,7 +67,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "flow": "flow"
+    "flow": "flow",
+    "prepublish": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
