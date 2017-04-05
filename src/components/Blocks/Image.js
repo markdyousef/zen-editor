@@ -9,12 +9,11 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-    width: 50px;
-    height: 50px;
+    ${''/* width: 50px;
+    height: 50px; */}
 `;
 
 const ImageBlock = ({ data }:Object) => {
-    console.log(data);
     return (
         <div>
             <Container>

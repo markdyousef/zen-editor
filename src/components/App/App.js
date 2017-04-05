@@ -24,9 +24,9 @@ const EditorContainer = styled.div`
     max-width: 700px;
 `;
 
-const imagePlugin = createImagePlugin();
-
-const plugins = [imagePlugin];
+// const imagePlugin = createImagePlugin();
+//
+// const plugins = [imagePlugin];
 
 /* eslint-disable */
 const initialState = {
@@ -124,7 +124,7 @@ export default class App extends Component {
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
                         onTab={this.onTab}
-                        plugin={plugins}
+                        // plugin={plugins}
                     />
                     <FloatingActionButton
                         editorState={editorState}

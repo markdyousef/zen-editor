@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { AtomicBlockUtils, EditorState } from 'draft-js';
 import styled from 'styled-components';
 import { Block } from '../../utils/constants';
-import { addNewBlock } from '../../utils/blocks';
+import { insertDataBlock } from '../../utils/blocks';
 
 const Button = styled.button`
     height: 25px;
@@ -31,24 +31,14 @@ export default class ImageButton extends Component {
     }
     onChange = (e) => {
         const { setEditorState, editorState, close } = this.props;
+        e.preventDefault();
+
         const file = e.target.files[0];
-        // check file type
+        // // check file type
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
-            // setEditorState(addNewBlock(editorState, Block.IMAGE, { src }));
-            const urlType = 'image';
-            const contentState = editorState.getCurrentContent();
-            const contentStateWithEntity = contentState.createEntity(urlType, 'IMMUTABLE', { src });
-            const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-            const newEditorState = AtomicBlockUtils.insertAtomicBlock(
-                editorState,
-                entityKey,
-                ''
-            );
-            EditorState.forceSelection(
-                newEditorState,
-                editorState.getCurrentContent().getSelectionAfter()
-            );
+            const data = { src, type: 'image', display: 'medium' };
+            setEditorState(insertDataBlock(editorState, data));
         }
         close();
     }
