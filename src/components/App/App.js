@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { EditorState, RichUtils, convertFromRaw } from 'draft-js';
+import { EditorState, RichUtils } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 // import createImagePlugin from 'draft-js-image-plugin';
 // TODO: add custom styling
@@ -28,54 +28,11 @@ const EditorContainer = styled.div`
 //
 // const plugins = [imagePlugin];
 
-/* eslint-disable */
-const initialState = {
-    "entityMap": {
-        "0": {
-            "type": "image",
-            "mutability": "IMMUTABLE",
-            "data": {
-                "src": "https://clai.io/img/clai-design.png"
-            }
-        }
-    },
-    "blocks": [{
-        "key": "9gm3s",
-        "text": "You can have images in your text field. This is a very rudimentary example, but you can enhance the image plugin with resizing, focus or alignment plugins.",
-        "type": "unstyled",
-        "depth": 0,
-        "inlineStyleRanges": [],
-        "entityRanges": [],
-        "data": {}
-    }, {
-        "key": "ov7r",
-        "text": " ",
-        "type": "atomic",
-        "depth": 0,
-        "inlineStyleRanges": [],
-        "entityRanges": [{
-            "offset": 0,
-            "length": 1,
-            "key": 0
-        }],
-        "data": {}
-    }, {
-        "key": "e23a8",
-        "text": "See advanced examples further down …",
-        "type": "unstyled",
-        "depth": 0,
-        "inlineStyleRanges": [],
-        "entityRanges": [],
-        "data": {}
-    }]
-};
-/* eslint-enable */
-
 export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            editorState: EditorState.createWithContent(convertFromRaw(initialState))
+            editorState: EditorState.createEmpty()
         };
     }
     onChange = editorState => this.setState({ editorState })

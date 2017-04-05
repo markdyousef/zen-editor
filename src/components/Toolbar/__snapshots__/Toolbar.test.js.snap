@@ -7,9 +7,8 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
-    left={0}
     showToolbar={true}
-    top={0}>
+    style={Object {}}>
     <BlockToolbar
         editorState={Object {}}
         onToggle={[Function]} />
@@ -19,9 +18,8 @@ ShallowWrapper {
 </styled.div>,
   "nodes": Array [
     <styled.div
-      left={0}
       showToolbar={true}
-      top={0}>
+      style={Object {}}>
       <BlockToolbar
             editorState={Object {}}
             onToggle={[Function]} />
@@ -59,8 +57,7 @@ ShallowWrapper {
         },
         "refs": Object {},
         "state": Object {
-          "left": 0,
-          "top": 0,
+          "position": Object {},
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -81,9 +78,8 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
-          left={0}
           showToolbar={true}
-          top={0}>
+          style={Object {}}>
           <BlockToolbar
                     editorState={Object {}}
                     onToggle={[Function]} />
@@ -93,9 +89,8 @@ ShallowWrapper {
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
-          left={0}
           showToolbar={true}
-          top={0}>
+          style={Object {}}>
           <BlockToolbar
                     editorState={Object {}}
                     onToggle={[Function]} />

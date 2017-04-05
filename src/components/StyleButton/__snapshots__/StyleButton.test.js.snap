@@ -1,7 +1,7 @@
 exports[`[object Object] 1`] = `
-<span
-  className="kLKimt"
+<button
+  className="jUAUJa"
   onClick={[Function]}>
   
-</span>
+</button>
 `;
