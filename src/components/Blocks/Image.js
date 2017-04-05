@@ -1,16 +1,13 @@
 // @flow
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { EditorBlock } from 'draft-js';
-import { getCurrentBlock } from '../../utils/blocks';
 
 const Container = styled.div`
     position: relative;
 `;
 
 const Image = styled.img`
-    ${''/* width: 50px;
-    height: 50px; */}
+    max-width: 400px;
 `;
 
 const ImageBlock = ({ data }:Object) => {

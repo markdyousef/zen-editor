@@ -3,17 +3,8 @@ import { AtomicBlockUtils, EditorState } from 'draft-js';
 import styled from 'styled-components';
 import { Block } from '../../utils/constants';
 import { insertDataBlock } from '../../utils/blocks';
-
-const Button = styled.button`
-    height: 25px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border: none;
-    outline: none;
-`;
+import Icon from '../../icons/image';
+import ActionIcon from '../ActionIcon';
 
 
 export default class ImageButton extends Component {
@@ -45,7 +36,8 @@ export default class ImageButton extends Component {
     render() {
         const { title } = this.props;
         return (
-            <Button onClick={this.onClick}>
+            <ActionIcon onClick={this.onClick}>
+                <Icon />
                 {title}
                 <input
                     type="file"
@@ -54,7 +46,7 @@ export default class ImageButton extends Component {
                     onChange={this.onChange}
                     style={{ display: 'none' }}
                 />
-            </Button>
+            </ActionIcon>
         );
     }
 }

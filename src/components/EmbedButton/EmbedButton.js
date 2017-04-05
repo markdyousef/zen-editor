@@ -1,17 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import styled from 'styled-components';
 import { AtomicBlockUtils } from 'draft-js';
-
-const Button = styled.button`
-    height: 25px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border: none;
-    outline: none;
-`;
+import Icon from '../../icons/embed';
+import ActionIcon from '../ActionIcon';
 
 export default class EmbedButton extends Component {
     static propTypes = {
@@ -48,9 +38,10 @@ export default class EmbedButton extends Component {
     render() {
         const { title } = this.props;
         return (
-            <Button onClick={this.onClick}>
+            <ActionIcon onClick={this.onClick}>
+                <Icon />
                 {title}
-            </Button>
+            </ActionIcon>
         );
     }
 }

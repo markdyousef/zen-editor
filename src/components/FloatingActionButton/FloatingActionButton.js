@@ -4,6 +4,7 @@ import { boxLayout } from '../../styles/layouts';
 import ImageButton from '../ImageButton';
 import EmbedButton from '../EmbedButton';
 import { getSelectedBlockNode } from '../../utils/display';
+import Icon from '../../icons/plus';
 
 const Container = styled.div`
     height: 200px;
@@ -13,7 +14,7 @@ const Container = styled.div`
     left: -40px;
 `;
 
-const Button = styled.button`
+const Button = styled.div`
     width: 35px;
     height: 35px;
     background-color: #fff;
@@ -21,6 +22,9 @@ const Button = styled.button`
     border: 1px solid #e5e5e5;
     outline: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Dropdown = styled.div`
@@ -157,7 +161,7 @@ export default class FloatingActionButton extends Component {
         return (
             <Container top={top}>
                 <Button onClick={() => this.setState({ isOpen: !isOpen })}>
-                    X
+                    <Icon />
                 </Button>
                 <Dropdown isOpen={isOpen}>
                     {ACTION_BUTTONS.map((button) => {

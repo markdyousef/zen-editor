@@ -1,24 +1,27 @@
 // @flow
 import React, { PropTypes } from 'react';
 import StyleButton from '../StyleButton';
+import boldIcon from '../../icons/bold';
+import italicIcon from '../../icons/italic';
+import underlineIcon from '../../icons/underline';
 
 const INLINE_BUTTONS = [
     {
         label: 'B',
         style: 'BOLD',
-        icon: 'bold',
+        Icon: boldIcon,
         description: 'Bold'
     },
     {
         label: 'I',
         style: 'ITALIC',
-        icon: 'italic',
+        Icon: italicIcon,
         description: 'Italic'
     },
     {
         label: 'U',
         style: 'UNDERLINE',
-        icon: 'underline',
+        Icon: underlineIcon,
         description: 'Underline'
     },
     {
@@ -39,6 +42,7 @@ const InlineToolbar = ({ onToggle, editorState }:Object) => {
                     label={item.label}
                     onToggle={onToggle}
                     style={item.style}
+                    Icon={item.Icon}
                 />
             )}
         </div>
