@@ -66,11 +66,11 @@ ShallowWrapper {
                       "allowUndo": true,
                       "currentContent": Object {
                         "blockMap": Object {
-                          "24rgo": Object {
+                          "4lvlq": Object {
                             "characterList": Array [],
                             "data": Object {},
                             "depth": 0,
-                            "key": "24rgo",
+                            "key": "4lvlq",
                             "text": "",
                             "type": "unstyled",
                           },
@@ -90,17 +90,17 @@ ShallowWrapper {
                           "replaceData": [Function],
                         },
                         "selectionAfter": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
                         },
                         "selectionBefore": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
@@ -108,7 +108,7 @@ ShallowWrapper {
                       },
                       "decorator": null,
                       "directionMap": Object {
-                        "24rgo": "LTR",
+                        "4lvlq": "LTR",
                       },
                       "forceSelection": false,
                       "inCompositionMode": false,
@@ -117,15 +117,15 @@ ShallowWrapper {
                       "nativelyRenderedContent": null,
                       "redoStack": Array [],
                       "selection": Object {
-                        "anchorKey": "24rgo",
+                        "anchorKey": "4lvlq",
                         "anchorOffset": 0,
-                        "focusKey": "24rgo",
+                        "focusKey": "4lvlq",
                         "focusOffset": 0,
                         "hasFocus": false,
                         "isBackward": false,
                       },
                       "treeMap": Object {
-                        "24rgo": Array [
+                        "4lvlq": Array [
                           Object {
                             "decoratorKey": null,
                             "end": 0,
@@ -157,11 +157,11 @@ ShallowWrapper {
                       "allowUndo": true,
                       "currentContent": Object {
                         "blockMap": Object {
-                          "24rgo": Object {
+                          "4lvlq": Object {
                             "characterList": Array [],
                             "data": Object {},
                             "depth": 0,
-                            "key": "24rgo",
+                            "key": "4lvlq",
                             "text": "",
                             "type": "unstyled",
                           },
@@ -181,17 +181,17 @@ ShallowWrapper {
                           "replaceData": [Function],
                         },
                         "selectionAfter": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
                         },
                         "selectionBefore": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
@@ -199,7 +199,7 @@ ShallowWrapper {
                       },
                       "decorator": null,
                       "directionMap": Object {
-                        "24rgo": "LTR",
+                        "4lvlq": "LTR",
                       },
                       "forceSelection": false,
                       "inCompositionMode": false,
@@ -208,15 +208,15 @@ ShallowWrapper {
                       "nativelyRenderedContent": null,
                       "redoStack": Array [],
                       "selection": Object {
-                        "anchorKey": "24rgo",
+                        "anchorKey": "4lvlq",
                         "anchorOffset": 0,
-                        "focusKey": "24rgo",
+                        "focusKey": "4lvlq",
                         "focusOffset": 0,
                         "hasFocus": false,
                         "isBackward": false,
                       },
                       "treeMap": Object {
-                        "24rgo": Array [
+                        "4lvlq": Array [
                           Object {
                             "decoratorKey": null,
                             "end": 0,
@@ -244,11 +244,11 @@ ShallowWrapper {
                       "allowUndo": true,
                       "currentContent": Object {
                         "blockMap": Object {
-                          "24rgo": Object {
+                          "4lvlq": Object {
                             "characterList": Array [],
                             "data": Object {},
                             "depth": 0,
-                            "key": "24rgo",
+                            "key": "4lvlq",
                             "text": "",
                             "type": "unstyled",
                           },
@@ -268,17 +268,17 @@ ShallowWrapper {
                           "replaceData": [Function],
                         },
                         "selectionAfter": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
                         },
                         "selectionBefore": Object {
-                          "anchorKey": "24rgo",
+                          "anchorKey": "4lvlq",
                           "anchorOffset": 0,
-                          "focusKey": "24rgo",
+                          "focusKey": "4lvlq",
                           "focusOffset": 0,
                           "hasFocus": false,
                           "isBackward": false,
@@ -286,7 +286,7 @@ ShallowWrapper {
                       },
                       "decorator": null,
                       "directionMap": Object {
-                        "24rgo": "LTR",
+                        "4lvlq": "LTR",
                       },
                       "forceSelection": false,
                       "inCompositionMode": false,
@@ -295,15 +295,15 @@ ShallowWrapper {
                       "nativelyRenderedContent": null,
                       "redoStack": Array [],
                       "selection": Object {
-                        "anchorKey": "24rgo",
+                        "anchorKey": "4lvlq",
                         "anchorOffset": 0,
-                        "focusKey": "24rgo",
+                        "focusKey": "4lvlq",
                         "focusOffset": 0,
                         "hasFocus": false,
                         "isBackward": false,
                       },
                       "treeMap": Object {
-                        "24rgo": Array [
+                        "4lvlq": Array [
                           Object {
                             "decoratorKey": null,
                             "end": 0,
@@ -388,11 +388,11 @@ ShallowWrapper {
                                 "allowUndo": true,
                                 "currentContent": Object {
                                   "blockMap": Object {
-                                    "24rgo": Object {
+                                    "4lvlq": Object {
                                       "characterList": Array [],
                                       "data": Object {},
                                       "depth": 0,
-                                      "key": "24rgo",
+                                      "key": "4lvlq",
                                       "text": "",
                                       "type": "unstyled",
                                     },
@@ -412,17 +412,17 @@ ShallowWrapper {
                                     "replaceData": [Function],
                                   },
                                   "selectionAfter": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
                                   },
                                   "selectionBefore": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
@@ -430,7 +430,7 @@ ShallowWrapper {
                                 },
                                 "decorator": null,
                                 "directionMap": Object {
-                                  "24rgo": "LTR",
+                                  "4lvlq": "LTR",
                                 },
                                 "forceSelection": false,
                                 "inCompositionMode": false,
@@ -439,15 +439,15 @@ ShallowWrapper {
                                 "nativelyRenderedContent": null,
                                 "redoStack": Array [],
                                 "selection": Object {
-                                  "anchorKey": "24rgo",
+                                  "anchorKey": "4lvlq",
                                   "anchorOffset": 0,
-                                  "focusKey": "24rgo",
+                                  "focusKey": "4lvlq",
                                   "focusOffset": 0,
                                   "hasFocus": false,
                                   "isBackward": false,
                                 },
                                 "treeMap": Object {
-                                  "24rgo": Array [
+                                  "4lvlq": Array [
                                     Object {
                                       "decoratorKey": null,
                                       "end": 0,
@@ -479,11 +479,11 @@ ShallowWrapper {
                                 "allowUndo": true,
                                 "currentContent": Object {
                                   "blockMap": Object {
-                                    "24rgo": Object {
+                                    "4lvlq": Object {
                                       "characterList": Array [],
                                       "data": Object {},
                                       "depth": 0,
-                                      "key": "24rgo",
+                                      "key": "4lvlq",
                                       "text": "",
                                       "type": "unstyled",
                                     },
@@ -503,17 +503,17 @@ ShallowWrapper {
                                     "replaceData": [Function],
                                   },
                                   "selectionAfter": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
                                   },
                                   "selectionBefore": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
@@ -521,7 +521,7 @@ ShallowWrapper {
                                 },
                                 "decorator": null,
                                 "directionMap": Object {
-                                  "24rgo": "LTR",
+                                  "4lvlq": "LTR",
                                 },
                                 "forceSelection": false,
                                 "inCompositionMode": false,
@@ -530,15 +530,15 @@ ShallowWrapper {
                                 "nativelyRenderedContent": null,
                                 "redoStack": Array [],
                                 "selection": Object {
-                                  "anchorKey": "24rgo",
+                                  "anchorKey": "4lvlq",
                                   "anchorOffset": 0,
-                                  "focusKey": "24rgo",
+                                  "focusKey": "4lvlq",
                                   "focusOffset": 0,
                                   "hasFocus": false,
                                   "isBackward": false,
                                 },
                                 "treeMap": Object {
-                                  "24rgo": Array [
+                                  "4lvlq": Array [
                                     Object {
                                       "decoratorKey": null,
                                       "end": 0,
@@ -566,11 +566,11 @@ ShallowWrapper {
                                 "allowUndo": true,
                                 "currentContent": Object {
                                   "blockMap": Object {
-                                    "24rgo": Object {
+                                    "4lvlq": Object {
                                       "characterList": Array [],
                                       "data": Object {},
                                       "depth": 0,
-                                      "key": "24rgo",
+                                      "key": "4lvlq",
                                       "text": "",
                                       "type": "unstyled",
                                     },
@@ -590,17 +590,17 @@ ShallowWrapper {
                                     "replaceData": [Function],
                                   },
                                   "selectionAfter": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
                                   },
                                   "selectionBefore": Object {
-                                    "anchorKey": "24rgo",
+                                    "anchorKey": "4lvlq",
                                     "anchorOffset": 0,
-                                    "focusKey": "24rgo",
+                                    "focusKey": "4lvlq",
                                     "focusOffset": 0,
                                     "hasFocus": false,
                                     "isBackward": false,
@@ -608,7 +608,7 @@ ShallowWrapper {
                                 },
                                 "decorator": null,
                                 "directionMap": Object {
-                                  "24rgo": "LTR",
+                                  "4lvlq": "LTR",
                                 },
                                 "forceSelection": false,
                                 "inCompositionMode": false,
@@ -617,15 +617,15 @@ ShallowWrapper {
                                 "nativelyRenderedContent": null,
                                 "redoStack": Array [],
                                 "selection": Object {
-                                  "anchorKey": "24rgo",
+                                  "anchorKey": "4lvlq",
                                   "anchorOffset": 0,
-                                  "focusKey": "24rgo",
+                                  "focusKey": "4lvlq",
                                   "focusOffset": 0,
                                   "hasFocus": false,
                                   "isBackward": false,
                                 },
                                 "treeMap": Object {
-                                  "24rgo": Array [
+                                  "4lvlq": Array [
                                     Object {
                                       "decoratorKey": null,
                                       "end": 0,
@@ -675,11 +675,11 @@ ShallowWrapper {
               "allowUndo": true,
               "currentContent": Object {
                 "blockMap": Object {
-                  "24rgo": Object {
+                  "4lvlq": Object {
                     "characterList": Array [],
                     "data": Object {},
                     "depth": 0,
-                    "key": "24rgo",
+                    "key": "4lvlq",
                     "text": "",
                     "type": "unstyled",
                   },
@@ -699,17 +699,17 @@ ShallowWrapper {
                   "replaceData": [Function],
                 },
                 "selectionAfter": Object {
-                  "anchorKey": "24rgo",
+                  "anchorKey": "4lvlq",
                   "anchorOffset": 0,
-                  "focusKey": "24rgo",
+                  "focusKey": "4lvlq",
                   "focusOffset": 0,
                   "hasFocus": false,
                   "isBackward": false,
                 },
                 "selectionBefore": Object {
-                  "anchorKey": "24rgo",
+                  "anchorKey": "4lvlq",
                   "anchorOffset": 0,
-                  "focusKey": "24rgo",
+                  "focusKey": "4lvlq",
                   "focusOffset": 0,
                   "hasFocus": false,
                   "isBackward": false,
@@ -717,7 +717,7 @@ ShallowWrapper {
               },
               "decorator": null,
               "directionMap": Object {
-                "24rgo": "LTR",
+                "4lvlq": "LTR",
               },
               "forceSelection": false,
               "inCompositionMode": false,
@@ -726,15 +726,15 @@ ShallowWrapper {
               "nativelyRenderedContent": null,
               "redoStack": Array [],
               "selection": Object {
-                "anchorKey": "24rgo",
+                "anchorKey": "4lvlq",
                 "anchorOffset": 0,
-                "focusKey": "24rgo",
+                "focusKey": "4lvlq",
                 "focusOffset": 0,
                 "hasFocus": false,
                 "isBackward": false,
               },
               "treeMap": Object {
-                "24rgo": Array [
+                "4lvlq": Array [
                   Object {
                     "decoratorKey": null,
                     "end": 0,
@@ -832,11 +832,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -856,17 +856,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -874,7 +874,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -883,15 +883,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
@@ -923,11 +923,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -947,17 +947,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -965,7 +965,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -974,15 +974,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
@@ -1010,11 +1010,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -1034,17 +1034,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -1052,7 +1052,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -1061,15 +1061,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
@@ -1154,11 +1154,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -1178,17 +1178,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -1196,7 +1196,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -1205,15 +1205,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
@@ -1245,11 +1245,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -1269,17 +1269,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -1287,7 +1287,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -1296,15 +1296,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
@@ -1332,11 +1332,11 @@ ShallowWrapper {
                                                     "allowUndo": true,
                                                     "currentContent": Object {
                                                       "blockMap": Object {
-                                                        "24rgo": Object {
+                                                        "4lvlq": Object {
                                                           "characterList": Array [],
                                                           "data": Object {},
                                                           "depth": 0,
-                                                          "key": "24rgo",
+                                                          "key": "4lvlq",
                                                           "text": "",
                                                           "type": "unstyled",
                                                         },
@@ -1356,17 +1356,17 @@ ShallowWrapper {
                                                         "replaceData": [Function],
                                                       },
                                                       "selectionAfter": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
                                                       },
                                                       "selectionBefore": Object {
-                                                        "anchorKey": "24rgo",
+                                                        "anchorKey": "4lvlq",
                                                         "anchorOffset": 0,
-                                                        "focusKey": "24rgo",
+                                                        "focusKey": "4lvlq",
                                                         "focusOffset": 0,
                                                         "hasFocus": false,
                                                         "isBackward": false,
@@ -1374,7 +1374,7 @@ ShallowWrapper {
                                                     },
                                                     "decorator": null,
                                                     "directionMap": Object {
-                                                      "24rgo": "LTR",
+                                                      "4lvlq": "LTR",
                                                     },
                                                     "forceSelection": false,
                                                     "inCompositionMode": false,
@@ -1383,15 +1383,15 @@ ShallowWrapper {
                                                     "nativelyRenderedContent": null,
                                                     "redoStack": Array [],
                                                     "selection": Object {
-                                                      "anchorKey": "24rgo",
+                                                      "anchorKey": "4lvlq",
                                                       "anchorOffset": 0,
-                                                      "focusKey": "24rgo",
+                                                      "focusKey": "4lvlq",
                                                       "focusOffset": 0,
                                                       "hasFocus": false,
                                                       "isBackward": false,
                                                     },
                                                     "treeMap": Object {
-                                                      "24rgo": Array [
+                                                      "4lvlq": Array [
                                                         Object {
                                                           "decoratorKey": null,
                                                           "end": 0,
