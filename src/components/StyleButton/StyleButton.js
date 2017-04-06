@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import styled from 'styled-components';
-import { actionsColor } from '../../styles/colors';
 import ActionIcon from '../ActionIcon';
 
 export default class StyleButton extends Component {
@@ -10,6 +8,9 @@ export default class StyleButton extends Component {
         label: PropTypes.string.isRequired,
         active: PropTypes.bool.isRequired,
         Icon: PropTypes.func
+    }
+    static defaultProps = {
+        Icon: null
     }
     constructor() {
         super();

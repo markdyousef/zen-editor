@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { AtomicBlockUtils, EditorState } from 'draft-js';
-import styled from 'styled-components';
-import { Block } from '../../utils/constants';
 import { insertDataBlock } from '../../utils/blocks';
 import Icon from '../../icons/image';
 import ActionIcon from '../ActionIcon';
@@ -29,7 +26,6 @@ export default class ImageButton extends Component {
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
             const data = { src, type: 'image', display: 'medium' };
-            console.log(data);
             setEditorState(insertDataBlock(editorState, data));
         }
         close();
