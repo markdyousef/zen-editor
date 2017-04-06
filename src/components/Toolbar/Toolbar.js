@@ -72,10 +72,9 @@ export default class Toolbar extends Component {
                     relativeParent.getBoundingClientRect()
                     :
                     document.body.getBoundingClientRect();
-                const selectionRect = getVisibleSelectionRect(window);
                 position = {
-                    top: (selectionRect.top + relativeRect.top),
-                    left: (selectionRect.left - relativeRect.left) + (selectionRect.width / 2),
+                    top: (this.selectionRect.top + relativeRect.top),
+                    left: (this.selectionRect.left - relativeRect.left) + (this.selectionRect.width / 2),
                     transform: 'translate(-50%) scale(1)',
                     transition: 'transform 0.15s cubic-brezier(0.3, 1.2, 0.2, 1)'
                 };
@@ -85,6 +84,10 @@ export default class Toolbar extends Component {
             }
             this.setState({ position });
         });
+    }
+    componentDidUpdate() {
+        this.selectionRect = getVisibleSelectionRect(window);
+        this.props.focus();
     }
     render() {
         const { toggleBlockType, editorState, showToolbar, toggleInlineStyle } = this.props;
