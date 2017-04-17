@@ -1,7 +1,14 @@
 {
   "name": "zen-editor",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "main": "build",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markdyousef/zen-editor.git"
+  },
+  "author": "markdyousef",
+  "license": "MIT",
+  "homepage": "https://github.com/markdyousef/zen-editor",
   "dependencies": {
     "draft-js": "^0.10.0",
     "react": "^15.4.2",
@@ -43,6 +50,7 @@
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
+    "np": "^2.13.1",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
@@ -59,8 +67,11 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "flow": "flow"
+    "test": "jest",
+    "test:watch": "node scripts/test.js --env=jsdom",
+    "flow": "flow",
+    "prepublish": "npm run build",
+    "release": "np"
   },
   "eslintConfig": {
     "extends": "react-app"
