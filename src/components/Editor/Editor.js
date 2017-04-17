@@ -6,6 +6,8 @@ import customRenderer from '../../utils/customRenderer';
 import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
 import decorator from '../../utils/decorator';
+import keyBindings from '../../utils/keyBindings';
+import { insertDataBlock } from '../../utils/blocks';
 
 type State = {
     editorState: Object
@@ -55,6 +57,24 @@ export default class App extends Component {
             )
         );
     }
+    handleKeyCommand = (command: string) => {
+        if (command === 'open-finder') {
+            this.input.value = null;
+            this.input.click();
+        }
+        return 'not-handled';
+    }
+    handleFileUpload = (event:Object) => {
+        const { editorState } = this.state;
+        event.preventDefault();
+        const file = event.target.files[0];
+        // // check file type
+        if (file.type.indexOf('image/') === 0) {
+            const src = URL.createObjectURL(file);
+            const data = { src, type: 'image', display: 'medium' };
+            this.onChange(insertDataBlock(editorState, data));
+        }
+    }
     render() {
         const { editorState } = this.state;
         return (
@@ -68,6 +88,15 @@ export default class App extends Component {
                         onChange={this.onChange}
                         blockRendererFn={customRenderer(editorState, this.onChange)}
                         onTab={this.onTab}
+                        keyBindingFn={keyBindings}
+                        handleKeyCommand={this.handleKeyCommand}
+                    />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={(c) => { this.input = c; }}
+                        onChange={this.handleFileUpload}
+                        style={{ display: 'none' }}
                     />
                 </EditorContainer>
             </Container>

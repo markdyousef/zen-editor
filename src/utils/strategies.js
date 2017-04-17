@@ -23,12 +23,12 @@ const findWithRegex = (regex:Object, contentBlock:Object, cb:Function) => {
     }
     /* eslint-disable */
 };
-const HASHTAG_REGEX = /[\w\u0590-\u05ff]+/g;
+const HASHTAG_REGEX = /\#[\w\u0590-\u05ff]+/g;
 export const hashtagStrategy = (contentBlock: Object, cb: Function) => {
     findWithRegex(HASHTAG_REGEX, contentBlock, cb);
 };
 
-const HANDLE_REGEX = /[\w]+/g;
+const HANDLE_REGEX = /\@[\w]+/g;
 export const handleStrategy = (contentBlock:Object, cb:Function) => {
     findWithRegex(HANDLE_REGEX, contentBlock, cb);
 };

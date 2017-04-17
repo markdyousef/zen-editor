@@ -8,6 +8,5 @@ const Handle = styled.span`
     unicode-bidi: bidi-override
 `;
 export default ({ children }:Object) => {
-    console.log(children);
     return <Handle>{children}</Handle>;
 };
