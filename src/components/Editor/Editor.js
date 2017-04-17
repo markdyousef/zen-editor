@@ -48,7 +48,7 @@ export default class App extends Component {
             )
         );
     }
-    toggleInlineStyle = (inlineStyle:Object) => {
+    toggleInlineStyle = (inlineStyle:string) => {
         const { editorState } = this.state;
         this.onChange(
             RichUtils.toggleInlineStyle(
@@ -58,16 +58,44 @@ export default class App extends Component {
         );
     }
     handleKeyCommand = (command: string) => {
-        if (command === 'open-finder') {
+        switch (command) {
+        case 'header-one':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'header-two':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'blockquote':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'unordered-list-item':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'ordered-list-item':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'code-block':
+            this.toggleBlockType(command);
+            return 'handled';
+        case 'BOLD':
+            this.toggleInlineStyle(command);
+            return 'handled';
+        case 'ITALIC':
+            this.toggleInlineStyle(command);
+            return 'handled';
+        case 'UNDERLINE':
+            this.toggleInlineStyle(command);
+            return 'handled';
+        case 'HIGHLIGHT':
+            this.toggleInlineStyle(command);
+            return 'handled';
+        case 'open-finder':
             this.input.value = null;
             this.input.click();
             return 'handled';
+        default:
+            return 'not-handled';
         }
-        if (command === 'header-one') {
-            this.toggleBlockType(command);
-            return 'handled';
-        }
-        return 'not-handled';
     }
     handleFileUpload = (event:Object) => {
         const { editorState } = this.state;
