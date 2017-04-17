@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import Editor from './Editor';
 
 it('renders component correctly', () => {
     // const shallowComponent = shallow(<App />);
