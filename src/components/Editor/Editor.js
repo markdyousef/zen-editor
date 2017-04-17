@@ -37,7 +37,7 @@ export default class App extends Component {
     getEditorState = () => this.state.editorState;
     editor: Editor
     focus = () => this.editor.focus();
-    toggleBlockType = (blockType:Object) => {
+    toggleBlockType = (blockType:string) => {
         const { editorState } = this.state;
         const type = RichUtils.getCurrentBlockType(editorState);
         if (type.indexOf(`${Block.ATOMIC}:`) === 0) return;
@@ -61,6 +61,11 @@ export default class App extends Component {
         if (command === 'open-finder') {
             this.input.value = null;
             this.input.click();
+            return 'handled';
+        }
+        if (command === 'header-one') {
+            this.toggleBlockType(command);
+            return 'handled';
         }
         return 'not-handled';
     }

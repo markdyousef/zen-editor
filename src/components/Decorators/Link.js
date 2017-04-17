@@ -7,7 +7,7 @@ const Link = styled.a`
     text-decoration: underline;
 `;
 export default ({ contentState, entityKey, children }:Object) => {
-    const { url } = contentState.getEntity(entityKey).getDate();
+    const { url } = contentState.getEntity(entityKey).getData();
 
     return <Link href={url}>{children}</Link>;
 };

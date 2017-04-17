@@ -7,6 +7,6 @@ const Handle = styled.span`
     direction: ltr;
     unicode-bidi: bidi-override
 `;
-export default ({ children }:Object) => {
+export default ({ contentState, entityKey, children }:Object) => {
     return <Handle>{children}</Handle>;
 };
