@@ -74,10 +74,13 @@ export default class Toolbar extends Component {
                     document.body.getBoundingClientRect();
                 position = {
                     top: (this.selectionRect.top + relativeRect.top),
-                    left: (this.selectionRect.left - relativeRect.left) + (this.selectionRect.width / 2),
+                    // left: (this.selectionRect.left - relativeRect.left) + (this.selectionRect.width / 2),
+                    left: (this.selectionRect.left - 200),
                     transform: 'translate(-50%) scale(1)',
                     transition: 'transform 0.15s cubic-brezier(0.3, 1.2, 0.2, 1)'
                 };
+                // console.log(this.selectionRect.left);
+                // console.log(this.selectionRect.width);
                 this.props.focus();
             } else {
                 position = { transform: 'translate(-50%) scale(0)' };
