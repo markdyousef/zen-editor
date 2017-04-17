@@ -2,7 +2,7 @@ import Link from './Link';
 import HashtagSpan from './HashtagSpan';
 import HandleSpan from './HandleSpan';
 
-export default {
+export {
     Link,
     HashtagSpan,
     HandleSpan

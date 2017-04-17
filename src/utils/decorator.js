@@ -1,7 +1,7 @@
 // @flow
 import { CompositeDecorator } from 'draft-js';
 import { Link, HandleSpan, HashtagSpan } from '../components/Decorators';
-import { linkStrategy, handleStrategy, hashtagStrategy } from './strategies'
+import { linkStrategy, handleStrategy, hashtagStrategy } from './strategies';
 
 export default new CompositeDecorator([
     {

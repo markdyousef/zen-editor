@@ -5,6 +5,7 @@ import 'draft-js/dist/Draft.css';
 import customRenderer from '../../utils/customRenderer';
 import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
+import decorator from '../../utils/decorator';
 
 type State = {
     editorState: Object
@@ -14,7 +15,9 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            editorState: EditorState.createEmpty()
+            editorState: EditorState.createEmpty(decorator),
+            showUrlInput: false,
+            urlValue: ''
         };
     }
     state: State
