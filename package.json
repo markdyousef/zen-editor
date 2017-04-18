@@ -1,7 +1,7 @@
 {
   "name": "zen-editor",
   "version": "0.1.5",
-  "main": "lib/index.js",
+  "main": "lib/node_modules/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/markdyousef/zen-editor.git"
@@ -71,7 +71,7 @@
   "scripts": {
     "start": "PORT=3005 node scripts/start.js",
     "build": "node scripts/build.js",
-    "lib": "babel src --out-dir lib --copy-files",
+    "lib": "babel src/ --ignore src/index.js --out-dir lib --copy-files",
     "test": "jest",
     "test:watch": "node scripts/test.js --env=jsdom",
     "flow": "flow",
