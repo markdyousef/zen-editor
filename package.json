@@ -75,7 +75,7 @@
     "test": "jest",
     "test:watch": "node scripts/test.js --env=jsdom",
     "flow": "flow",
-    "prepublish": "npm run build",
+    "prepublish": "npm run lib",
     "release": "np"
   },
   "eslintConfig": {
