@@ -1,7 +1,7 @@
 {
   "name": "zen-editor",
   "version": "0.1.1",
-  "main": "build",
+  "main": "build/static/js/main.f3ffb757.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/markdyousef/zen-editor.git"
