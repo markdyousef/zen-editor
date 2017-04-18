@@ -8,6 +8,10 @@ export default (event: Object) => {
     if (event.keyCode === 79 && hasCommandModifier(event)) {
         return 'open-finder';
     }
+    // command + l
+    if (event.keyCode === 76 && hasCommandModifier(event)) {
+        return 'open-url';
+    }
     // ctrl + 1
     if (event.keyCode === 49 && isCtrlKeyCommand(event)) {
         return 'header-one';

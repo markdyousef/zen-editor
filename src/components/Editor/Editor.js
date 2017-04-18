@@ -7,6 +7,7 @@ import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
 import decorator from '../../utils/decorator';
 import keyBindings from '../../utils/keyBindings';
+import keyCommands from '../../utils/keyCommands';
 import { insertDataBlock } from '../../utils/blocks';
 
 type State = {
@@ -59,42 +60,17 @@ export default class App extends Component {
     }
     handleKeyCommand = (command: string) => {
         switch (command) {
-        case 'header-one':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'header-two':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'blockquote':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'unordered-list-item':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'ordered-list-item':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'code-block':
-            this.toggleBlockType(command);
-            return 'handled';
-        case 'BOLD':
-            this.toggleInlineStyle(command);
-            return 'handled';
-        case 'ITALIC':
-            this.toggleInlineStyle(command);
-            return 'handled';
-        case 'UNDERLINE':
-            this.toggleInlineStyle(command);
-            return 'handled';
-        case 'HIGHLIGHT':
-            this.toggleInlineStyle(command);
-            return 'handled';
         case 'open-finder':
             this.input.value = null;
             this.input.click();
             return 'handled';
+        case 'open-url': {
+            const url = window.prompt('Enter link: ');
+            console.log(url);
+            return 'handled';
+        }
         default:
-            return 'not-handled';
+            return keyCommands(this, command);
         }
     }
     handleFileUpload = (event:Object) => {
@@ -111,7 +87,7 @@ export default class App extends Component {
     render() {
         const { editorState } = this.state;
         return (
-            <Container>
+            <Container onClick={this.focus}>
                 <EditorContainer>
                     <Editor
                         ref={(node) => { this.editor = node; }}
