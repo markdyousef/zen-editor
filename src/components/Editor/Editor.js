@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { EditorState, RichUtils, Editor } from 'draft-js';
+import 'draft-js/dist/Draft.css';
 import customRenderer from '../../utils/customRenderer';
 import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
