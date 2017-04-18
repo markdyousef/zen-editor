@@ -8,7 +8,7 @@ const Container = styled.div`
 export default class EmbedBlock extends Component {
     static propTypes = {
         data: PropTypes.shape({
-            url: PropTypes.string
+            src: PropTypes.string
         }).isRequired
     }
     constructor() {
@@ -44,11 +44,11 @@ export default class EmbedBlock extends Component {
         }
     }
     render() {
-        const { url } = this.props.data;
+        const { src } = this.props.data;
         const innerHTML = `
             <div>
-                <a class="embedly-card" href="${url}" data-card-controls="0" data-card-theme="dark">
-                    Embedded - ${url}
+                <a class="embedly-card" href="${src}" data-card-controls="0" data-card-theme="dark">
+                    Embedded - ${src}
                 </a>
             </div>
         `;

@@ -8,6 +8,7 @@ const Container = styled.div`
 const AtomicBlock = ({ ...props }:Object) => {
     const { block, blockProps } = props;
     const data = block.getData().toJS();
+    console.log(data);
     if (blockProps.components[data.type]) {
         const Component = blockProps.components[data.type];
         return (
