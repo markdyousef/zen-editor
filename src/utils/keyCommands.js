@@ -1,6 +1,5 @@
 // @flow
 export default (editor:Object, command:string):string => {
-    console.log(editor, command);
     switch (command) {
     case 'header-one':
         editor.toggleBlockType(command);

@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import { EditorState, RichUtils, Editor } from 'draft-js';
-import 'draft-js/dist/Draft.css';
 import customRenderer from '../../utils/customRenderer';
 import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
@@ -59,14 +58,16 @@ export default class App extends Component {
         );
     }
     handleKeyCommand = (command: string) => {
+        const { editorState } = this.state;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
             this.input.click();
             return 'handled';
         case 'open-url': {
-            const url = window.prompt('Enter link: ');
-            console.log(url);
+            const src = window.prompt('Enter link: ');
+            const data = { src, type: 'embed' };
+            this.onChange(insertDataBlock(editorState, data));
             return 'handled';
         }
         default:
