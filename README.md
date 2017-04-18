@@ -14,6 +14,7 @@ Custom editor for Clai's Cuest Project
     *   <kbd>'</kbd> - blockquote
     *   <kbd>*</kbd> - unordered-list-item.
 
+
 *   <kbd>CTRL/Command</kbd> +
 
     *   <kbd>O</kbd> - Open finder
