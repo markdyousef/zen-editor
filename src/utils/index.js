@@ -5,6 +5,7 @@ import { Block, Inline } from './constants';
 import { insertDataBlock } from './blocks';
 import decorator from './decorator';
 import styleMap from './styleMap';
+import { beforeInput, StringToTypeMap } from './beforeInput';
 
 export {
     customRenderer,
@@ -14,5 +15,7 @@ export {
     Inline,
     insertDataBlock,
     decorator,
-    styleMap
+    styleMap,
+    beforeInput,
+    StringToTypeMap
 };

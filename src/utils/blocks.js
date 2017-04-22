@@ -8,7 +8,7 @@ import { Block } from './constants';
 *   Returns default block-level metadata for various block type.
 *   Empty object otherwise
 **/
-export const getDefaultBlockData = (blockType: String, initialData:Object = {}) => {
+export const getDefaultBlockData = (blockType: string, initialData:Object = {}) => {
     switch (blockType) {
     case Block.TODO: return { checked: false };
     default: return initialData;
@@ -18,7 +18,7 @@ export const getDefaultBlockData = (blockType: String, initialData:Object = {}) 
 /**
 *   Get currentBlock in the editorState
 **/
-export const getCurrentBlock = (editorState:Object) => {
+export const getCurrentBlock = (editorState:EditorState) => {
     const selectionState = editorState.getSelection();
     const contentState = editorState.getCurrentContent();
     const block = contentState.getBlockForKey(selectionState.getStartKey());
@@ -26,10 +26,35 @@ export const getCurrentBlock = (editorState:Object) => {
     return block;
 };
 
+// Change the block type of the current block
+export const resetBlockWithType = (editorState: EditorState, newType:string = Block.UNSTYLED, overrides:Object = {}):EditorState => {
+    const contentState = editorState.getCurrentContent();
+    const selectionState = editorState.getSelection();
+
+    const key = selectionState.getStartKey();
+    const blockMap = contentState.getBlockMap();
+
+    const block = blockMap.get(key);
+    const newBlock = block.mergeDeep(overrides, {
+        type: newType,
+        data: getDefaultBlockData(newType)
+    });
+
+    const newContentState = contentState.merge({
+        blockMap: blockMap.set(key, newBlock),
+        selectionAfter: selectionState.merge({
+            anchorOffset: 0,
+            focusOffset: 0
+        })
+    });
+
+    return EditorState.push(editorState, newContentState, 'change-block-type');
+};
+
 /**
 *   Adds new block at the current cursor position
 */
-export const addNewBlock = (editorState:Object, newType:String = Block.UNSTYLED, initialData:Object = {}) => {
+export const addNewBlock = (editorState:EditorState, newType:string = Block.UNSTYLED, initialData:Object = {}) => {
     const selectionState = editorState.getSelection();
 
     if (!selectionState.isCollapsed()) return editorState;
@@ -61,7 +86,7 @@ export const addNewBlock = (editorState:Object, newType:String = Block.UNSTYLED,
     return editorState;
 };
 
-export const insertDataBlock = (editorState:Object, data:Object) => {
+export const insertDataBlock = (editorState:EditorState, data:Object) => {
     const contentState = editorState.getCurrentContent();
     const selectionState = editorState.getSelection();
 
@@ -74,7 +99,6 @@ export const insertDataBlock = (editorState:Object, data:Object) => {
     const targetSelection = afterRemoval.getSelectionAfter();
     const afterSplit = Modifier.splitBlock(afterRemoval, targetSelection);
     const insertionTarget = afterSplit.getSelectionAfter();
-    console.log(insertionTarget);
 
     const asAtomicBlock = Modifier.setBlockType(
         afterSplit,
@@ -112,6 +136,5 @@ export const insertDataBlock = (editorState:Object, data:Object) => {
         selectionBefore: selectionState,
         selectionAfter: withAtomicBlock.getSelectionAfter().set('hasFocus', true)
     });
-    console.log(newContent);
     return EditorState.push(editorState, newContent, 'insert-fragment');
 };

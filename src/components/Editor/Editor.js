@@ -9,7 +9,9 @@ import {
     insertDataBlock,
     decorator,
     Block,
-    styleMap
+    styleMap,
+    beforeInput,
+    StringToTypeMap
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
 import FAB from '../FloatingActionButton';
@@ -106,6 +108,10 @@ export default class App extends Component {
             onChange(insertDataBlock(editorState, data));
         }
     }
+    handleBeforeInput = (input: string) => {
+        const { editorState, onChange } = this.props;
+        return beforeInput(editorState, input, onChange, StringToTypeMap);
+    }
     render() {
         const { editorState, onChange, placeholder, spellCheck, readOnly } = this.props;
         return (
@@ -123,6 +129,7 @@ export default class App extends Component {
                         handleKeyCommand={this.handleKeyCommand}
                         readOnly={readOnly}
                         customStyleMap={styleMap}
+                        handleBeforeInput={this.handleBeforeInput}
                     />
                     {/* <FAB
                         editorState={editorState}
