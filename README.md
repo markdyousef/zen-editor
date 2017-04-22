@@ -28,18 +28,16 @@ Custom editor for Clai's Cuest Project
 These commands are not a part of the core editor but have been implemented in the example code that uses the `zen-editor` editor.
 
 *   <kbd>Command/CTRL</kbd> + <kbd>S</kbd> - Save current data to `localstorage`.
-*   <kbd>Alt + Shift</kbd> + <kbd>L</kbd> - Load previously saved data from `localstorage`.
+*   <kbd>Alt + Shift</kbd> + <kbd>L</kbd> - Load previously saved data from `localstorage`. -->
 
-##### Special characters while typing: While typing in an empty block, if the content matches one of the following, that particular block's type and look will be changed to the corresponding block specified below
+##### Markdown-like special characters:
 
-*   `--` - If current block is `blockquote`, it will be changed to `block-quote-caption`, else `caption`.
-*   `*.` `(An asterisk and a period)` - `unordered-list-item`.
-*   `*<SPACE>` `(An asterisk and a space)` - `unordered-list-item`.
-*   `-<SPACE>` `(A hyphen and a space)` - `unordered-list-item`.
-*   `1.` `(The number 1 and a period)` - `unordered-list-item`.
-*   `##` - `header-two`.
-*   `[]` - `todo`.
-*   `==` - `unstyled`. -->
+*   `# <SPACE>` - H1.
+*   `##` - H2.
+*   `1.` - OL.
+*   `* <SPACE>` - UL.
+*   `` <Space>` - CODE.
+*   `# <SPACE>` - BLOCKQUOTE.
 
 ### Installation
 
@@ -64,7 +62,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      editorState: EditorState.createWithContent(decorator) 
+      editorState: EditorState.createWithContent(decorator)
     };
 
     this.onChange = editorState => this.setState({ editorState });
