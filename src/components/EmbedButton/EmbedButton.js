@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { AtomicBlockUtils } from 'draft-js';
 import Icon from '../../icons/embed';
 import ActionIcon from '../ActionIcon';
+import { insertDataBlock } from '../../utils';
 
 export default class EmbedButton extends Component {
     static propTypes = {
@@ -13,27 +13,16 @@ export default class EmbedButton extends Component {
         close: PropTypes.func.isRequired
     }
     onClick = () => {
-        const { close } = this.props;
-        const url = window.prompt('Enter URL', 'https://www.clai.io');
-        close();
+        const url = window.prompt('Enter URL');
 
         if (!url) return;
         this.addEmbedURL(url);
     }
-    addEmbedURL = (url) => {
-        const { setEditorState, editorState } = this.props;
-        const contentState = editorState.getCurrentContent();
-        const entityKey = contentState
-            .createEntity('embed', 'IMMUTABLE', { url })
-            .getLastCreatedEntityKey();
-
-        setEditorState(
-            AtomicBlockUtils.insertAtomicBlock(
-                editorState,
-                entityKey,
-                'E'
-            )
-        );
+    addEmbedURL = (src) => {
+        const { editorState, setEditorState, close } = this.props;
+        const data = { src, type: 'embed' };
+        setEditorState(insertDataBlock(editorState, data));
+        close();
     }
     render() {
         const { title } = this.props;

@@ -74,6 +74,7 @@ export const insertDataBlock = (editorState:Object, data:Object) => {
     const targetSelection = afterRemoval.getSelectionAfter();
     const afterSplit = Modifier.splitBlock(afterRemoval, targetSelection);
     const insertionTarget = afterSplit.getSelectionAfter();
+    console.log(insertionTarget);
 
     const asAtomicBlock = Modifier.setBlockType(
         afterSplit,
@@ -111,6 +112,6 @@ export const insertDataBlock = (editorState:Object, data:Object) => {
         selectionBefore: selectionState,
         selectionAfter: withAtomicBlock.getSelectionAfter().set('hasFocus', true)
     });
-
+    console.log(newContent);
     return EditorState.push(editorState, newContent, 'insert-fragment');
 };

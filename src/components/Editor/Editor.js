@@ -12,6 +12,7 @@ import {
     styleMap
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
+import FAB from '../FloatingActionButton';
 
 type State = {
     showUrlInput: bool,
@@ -85,6 +86,7 @@ export default class App extends Component {
             return 'handled';
         case 'open-url': {
             const src = window.prompt('Enter link: ');
+            if (!src) return 'handled';
             const data = { src, type: 'embed' };
             onChange(insertDataBlock(editorState, data));
             return 'handled';
@@ -106,7 +108,6 @@ export default class App extends Component {
     }
     render() {
         const { editorState, onChange, placeholder, spellCheck, readOnly } = this.props;
-        console.log(editorState.getCurrentContent().selectionAfter);
         return (
             <Container onClick={this.focus}>
                 <EditorContainer>
@@ -122,6 +123,11 @@ export default class App extends Component {
                         handleKeyCommand={this.handleKeyCommand}
                         readOnly={readOnly}
                         customStyleMap={styleMap}
+                    />
+                    <FAB
+                        editorState={editorState}
+                        focus={this.focus}
+                        setEditorState={onChange}
                     />
                     <input
                         type="file"
