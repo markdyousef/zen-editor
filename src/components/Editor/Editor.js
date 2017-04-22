@@ -2,13 +2,15 @@
 import React, { Component } from 'react';
 import { EditorState, RichUtils, Editor } from 'draft-js';
 import 'draft-js/dist/Draft.css';
-import customRenderer from '../../utils/customRenderer';
-import { Block } from '../../utils/constants';
+import {
+    customRenderer,
+    keyCommands,
+    keyBindings,
+    insertDataBlock,
+    decorator,
+    Block
+} from '../../utils';
 import { Container, EditorContainer } from './styles';
-import decorator from '../../utils/decorator';
-import keyBindings from '../../utils/keyBindings';
-import keyCommands from '../../utils/keyCommands';
-import { insertDataBlock } from '../../utils/blocks';
 
 type State = {
     showUrlInput: bool,
