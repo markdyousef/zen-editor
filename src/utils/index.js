@@ -4,6 +4,7 @@ import keyBindings from './keyBindings';
 import Block from './constants';
 import insertDataBlock from './blocks';
 import decorator from './decorator';
+import styleMap from './styleMap';
 
 export {
     customRenderer,
@@ -11,5 +12,6 @@ export {
     keyBindings,
     Block,
     insertDataBlock,
-    decorator
+    decorator,
+    styleMap
 };

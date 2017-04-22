@@ -8,7 +8,8 @@ import {
     keyBindings,
     insertDataBlock,
     decorator,
-    Block
+    Block,
+    styleMap
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
 
@@ -120,6 +121,7 @@ export default class App extends Component {
                         keyBindingFn={keyBindings}
                         handleKeyCommand={this.handleKeyCommand}
                         readOnly={readOnly}
+                        customStyleMap={styleMap}
                     />
                     <input
                         type="file"
