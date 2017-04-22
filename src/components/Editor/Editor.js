@@ -16,7 +16,7 @@ type State = {
 }
 
 type Props = {
-    editorState: Object,
+    editorState: EditorState,
     onChange: Function,
     placeholder: ?string,
     readOnly: ?bool,
@@ -25,8 +25,10 @@ type Props = {
 
 
 export default class App extends Component {
-    state: State
-    props: Props
+    state: State;
+    props: Props;
+    editor: Editor;
+    input: Object;
     static defaultProps = {
         editorState: EditorState.createEmpty(decorator),
         placeholder: 'write something',
@@ -50,7 +52,6 @@ export default class App extends Component {
             onChange(newEditorState);
         }
     };
-    getEditorState = () => this.state.editorState;
     focus = () => this.editor.focus();
     toggleBlockType = (blockType:string) => {
         const { editorState, onChange } = this.props;
@@ -102,6 +103,7 @@ export default class App extends Component {
     }
     render() {
         const { editorState, onChange, placeholder, spellCheck, readOnly } = this.props;
+        console.log(editorState.getCurrentContent().selectionAfter);
         return (
             <Container onClick={this.focus}>
                 <EditorContainer>
