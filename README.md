@@ -56,14 +56,15 @@ At the minimum, you need to provide `editorState` and `onChange` props, the same
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Editor, createEditorState } from 'zen-editor';
+import { Editor, decorator } from 'zen-editor';
+import { EditorState } from 'draft-js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      editorState: createEditorState(?data) // optionally create with data
+      editorState: EditorState.createWithContent(decorator) 
     };
 
     this.onChange = editorState => this.setState({ editorState });
