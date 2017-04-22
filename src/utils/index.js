@@ -1,7 +1,7 @@
 import customRenderer from './customRenderer';
 import keyCommands from './keyCommands';
 import keyBindings from './keyBindings';
-import Block from './constants';
+import { Block, Inline } from './constants';
 import { insertDataBlock } from './blocks';
 import decorator from './decorator';
 import styleMap from './styleMap';
@@ -11,6 +11,7 @@ export {
     keyCommands,
     keyBindings,
     Block,
+    Inline,
     insertDataBlock,
     decorator,
     styleMap

@@ -124,11 +124,11 @@ export default class App extends Component {
                         readOnly={readOnly}
                         customStyleMap={styleMap}
                     />
-                    <FAB
+                    {/* <FAB
                         editorState={editorState}
                         focus={this.focus}
                         setEditorState={onChange}
-                    />
+                    /> */}
                     <input
                         type="file"
                         accept="image/*"
