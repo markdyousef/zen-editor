@@ -7,40 +7,42 @@ import {
     keyCommands,
     keyBindings,
     insertDataBlock,
-    decorator,
     Block,
     styleMap,
     beforeInput,
-    StringToTypeMap
+    StringToTypeMap,
+    addImage
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
 import FAB from '../FloatingActionButton';
 
-type State = {
-    showUrlInput: bool,
-    urlValue: string
+type DefaultProps = {
+    placeholder: 'write something',
+    readOnly: false,
+    spellCheck: true,
+    showFAB: false
 }
-
 type Props = {
     editorState: EditorState,
     onChange: Function,
     placeholder: ?string,
     readOnly: ?bool,
-    spellCheck: ?bool
+    spellCheck: ?bool,
+    showFAB: bool,
+    addFile: (file:Object) => void
+}
+type State = {
+    showUrlInput: bool,
+    urlValue: string
 }
 
 
-export default class App extends Component {
+export default class App extends Component<DefaultProps, Props, State> {
+    static defaultProps: DefaultProps;
     state: State;
     props: Props;
     editor: Editor;
     input: Object;
-    static defaultProps = {
-        editorState: EditorState.createEmpty(decorator),
-        placeholder: 'write something',
-        readOnly: false,
-        spellCheck: true
-    }
     constructor() {
         super();
         this.state = {
@@ -98,25 +100,28 @@ export default class App extends Component {
         }
     }
     handleFileUpload = (event:Object) => {
-        const { editorState, onChange } = this.props;
+        const { editorState, onChange, addFile } = this.props;
         event.preventDefault();
         const file = event.target.files[0];
-        // // check file type
-        if (file.type.indexOf('image/') === 0) {
-            const src = URL.createObjectURL(file);
-            const data = { src, type: 'image', display: 'medium' };
-            onChange(insertDataBlock(editorState, data));
-        }
+        addImage(onChange, file, editorState)
+            .then(res => addFile(res))
+            .catch(err => console.log(err));
     }
     handleBeforeInput = (input: string) => {
         const { editorState, onChange } = this.props;
         return beforeInput(editorState, input, onChange, StringToTypeMap);
     }
     render() {
-        const { editorState, onChange, placeholder, spellCheck, readOnly } = this.props;
+        const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB } = this.props;
         return (
             <Container onClick={this.focus}>
                 <EditorContainer>
+                    {showFAB &&
+                        <FAB
+                            setEditorState={onChange}
+                            editorState={editorState}
+                        />
+                    }
                     <Editor
                         ref={(node) => { this.editor = node; }}
                         editorState={editorState}
@@ -131,11 +136,6 @@ export default class App extends Component {
                         customStyleMap={styleMap}
                         handleBeforeInput={this.handleBeforeInput}
                     />
-                    {/* <FAB
-                        editorState={editorState}
-                        focus={this.focus}
-                        setEditorState={onChange}
-                    /> */}
                     <input
                         type="file"
                         accept="image/*"

@@ -36,7 +36,7 @@ These commands are not a part of the core editor but have been implemented in th
 *   `##` - H2.
 *   `1.` - OL.
 *   `* <SPACE>` - UL.
-*   `` <Space>` - CODE.
+*   `` <SPACE>` - CODE.
 *   `# <SPACE>` - BLOCKQUOTE.
 
 ### Installation
