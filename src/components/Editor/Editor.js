@@ -10,6 +10,7 @@ import decorator from '../../utils/decorator';
 import keyBindings from '../../utils/keyBindings';
 import keyCommands from '../../utils/keyCommands';
 import { insertDataBlock } from '../../utils/blocks';
+import FAB from '../FloatingActionButton';
 
 const plugins = [inlineToolbarPlugin];
 
@@ -107,6 +108,7 @@ export default class App extends Component {
                         plugins={plugins}
                     />
                     <Toolbar />
+                    <FAB editorState={editorState} setEditorState={this.onChange} />
                     <input
                         type="file"
                         accept="image/*"

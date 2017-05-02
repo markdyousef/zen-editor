@@ -1,7 +1,6 @@
 import React from 'react';
-import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
+// import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
 import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin';
-
 import {
   ItalicButton,
   BoldButton,
@@ -13,6 +12,8 @@ import {
   BlockquoteButton,
   CodeBlockButton
 } from 'draft-js-buttons';
+import buttonStyles from './styles/buttonsStyles.css';
+import toolbarStyles from './styles/toolbarStyles.css';
 
 export const inlineToolbarPlugin = createInlineToolbarPlugin({
     structure: [
@@ -25,7 +26,8 @@ export const inlineToolbarPlugin = createInlineToolbarPlugin({
         OrderedListButton,
         BlockquoteButton,
         CodeBlockButton
-    ]
+    ],
+    theme: { buttonStyles, toolbarStyles }
 });
 
 const { InlineToolbar } = inlineToolbarPlugin;
