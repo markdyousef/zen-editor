@@ -1,3 +1,7 @@
-import Toolbar from './Toolbar';
+import Toolbar, { inlineToolbarPlugin } from './Toolbar';
+
+export {
+    inlineToolbarPlugin
+};
 
 export default Toolbar;

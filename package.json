@@ -11,6 +11,8 @@
   "homepage": "https://github.com/markdyousef/zen-editor",
   "dependencies": {
     "draft-js": "^0.10.0",
+    "draft-js-inline-toolbar-plugin": "^2.0.0-beta10",
+    "draft-js-plugins-editor": "^2.0.0-beta10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "save": "^2.3.0",
