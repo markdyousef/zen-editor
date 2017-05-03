@@ -6,17 +6,36 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Decorated(Toolbar) />,
+  "node": <styled.div
+    showToolbar={true}
+    style={Object {}}>
+    <BlockToolbar
+        editorState={Object {}}
+        onToggle={[Function]} />
+    <InlineToolbar
+        editorState={Object {}}
+        onToggle={[Function]} />
+</styled.div>,
   "nodes": Array [
-    <Decorated(Toolbar) />,
+    <styled.div
+      showToolbar={true}
+      style={Object {}}>
+      <BlockToolbar
+            editorState={Object {}}
+            onToggle={[Function]} />
+      <InlineToolbar
+            editorState={Object {}}
+            onToggle={[Function]} />
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
     "_instance": ShallowComponentWrapper {
       "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
+      "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <Unknown
+      "_currentElement": <Toolbar
+        editorNode={Object {}}
         editorState={Object {}}
         focus={[Function]}
         showToolbar={true}
@@ -25,10 +44,11 @@ ShallowWrapper {
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": StatelessComponent {
+      "_instance": Toolbar {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
+          "editorNode": Object {},
           "editorState": Object {},
           "focus": [Function],
           "showToolbar": true,
@@ -36,7 +56,9 @@ ShallowWrapper {
           "toggleInlineStyle": [Function],
         },
         "refs": Object {},
-        "state": null,
+        "state": Object {
+          "position": Object {},
+        },
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -55,9 +77,27 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Decorated(Toolbar) />,
+        "_currentElement": <styled.div
+          showToolbar={true}
+          style={Object {}}>
+          <BlockToolbar
+                    editorState={Object {}}
+                    onToggle={[Function]} />
+          <InlineToolbar
+                    editorState={Object {}}
+                    onToggle={[Function]} />
+</styled.div>,
         "_debugID": 2,
-        "_renderedOutput": <Decorated(Toolbar) />,
+        "_renderedOutput": <styled.div
+          showToolbar={true}
+          style={Object {}}>
+          <BlockToolbar
+                    editorState={Object {}}
+                    onToggle={[Function]} />
+          <InlineToolbar
+                    editorState={Object {}}
+                    onToggle={[Function]} />
+</styled.div>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -69,7 +109,8 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Unknown
+  "unrendered": <Toolbar
+    editorNode={Object {}}
     editorState={Object {}}
     focus={[Function]}
     showToolbar={true}

@@ -1,36 +1,19 @@
 // @flow
 import React, { Component } from 'react';
-import { EditorState, RichUtils, Editor } from 'draft-js';
-import 'draft-js/dist/Draft.css';
-import {
-    customRenderer,
-    keyCommands,
-    keyBindings,
-    insertDataBlock,
-    Block,
-    styleMap,
-    beforeInput,
-    StringToTypeMap,
-    addImage
-} from '../../utils';
+import { EditorState, RichUtils } from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
+import customRenderer from '../../utils/customRenderer';
+import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
+import decorator from '../../utils/decorator';
+import keyBindings from '../../utils/keyBindings';
+import keyCommands from '../../utils/keyCommands';
+import { insertDataBlock } from '../../utils/blocks';
 import FAB from '../FloatingActionButton';
 
-type DefaultProps = {
-    placeholder: 'write something',
-    readOnly: false,
-    spellCheck: true,
-    showFAB: false
-}
-type Props = {
-    editorState: EditorState,
-    onChange: Function,
-    placeholder: ?string,
-    readOnly: ?bool,
-    spellCheck: ?bool,
-    showFAB: bool,
-    addFile: (file:Object) => void
-}
+const plugins = [inlineToolbarPlugin];
+
 type State = {
     showUrlInput: bool,
     urlValue: string
@@ -132,9 +115,16 @@ export default class App extends Component<DefaultProps, Props, State> {
                         onTab={this.onTab}
                         keyBindingFn={keyBindings}
                         handleKeyCommand={this.handleKeyCommand}
+                        plugins={plugins}
                         readOnly={readOnly}
                         customStyleMap={styleMap}
                         handleBeforeInput={this.handleBeforeInput}
+                    />
+                    <Toolbar />
+                    <FAB
+                        editorState={editorState}
+                        setEditorState={this.onChange}
+                        focus={this.focus}
                     />
                     <input
                         type="file"
