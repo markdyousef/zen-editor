@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
+import { EditorState } from 'draft-js';
 import styled from 'styled-components';
 import { boxLayout } from '../../styles/layouts';
 import ImageButton from '../ImageButton';
@@ -58,14 +60,22 @@ const ACTION_BUTTONS = [
     // }
 ];
 
-export default class FloatingActionButton extends Component {
-    static propTypes = {
-        editorState: PropTypes.shape({
-            _immutable: PropTypes.object
-        }).isRequired,
-        focus: PropTypes.func.isRequired,
-        setEditorState: PropTypes.func.isRequired
-    }
+type DefaultProps = {};
+type Props = {
+    editorState: EditorState,
+    focus: () => void,
+    setEditorState: () => void
+};
+type State = {
+    isVisible: bool,
+    isOpen: bool,
+    top: ?number
+};
+
+export default class FloatingActionButton extends Component<DefaultProps, Props, State> {
+    static defaultProps: DefaultProps;
+    props: Props;
+    state: State;
     constructor() {
         super();
         this.node = null;
@@ -78,7 +88,7 @@ export default class FloatingActionButton extends Component {
             top: null
         };
     }
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: Props) {
         // only show FAB when text length === 0
         const { editorState } = nextProps;
         const contentState = editorState.getCurrentContent();

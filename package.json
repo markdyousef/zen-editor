@@ -1,7 +1,7 @@
 {
   "name": "zen-editor",
-  "version": "0.1.1",
-  "main": "build/static/js/main.f3ffb757.js",
+  "version": "0.1.8",
+  "main": "lib/node_modules/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/markdyousef/zen-editor.git"
@@ -10,6 +10,9 @@
   "license": "MIT",
   "homepage": "https://github.com/markdyousef/zen-editor",
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "draft-js": "^0.10.0",
     "draft-js-inline-toolbar-plugin": "^2.0.0-beta10",
     "draft-js-plugins-editor": "^2.0.0-beta10",
@@ -25,7 +28,9 @@
     "babel-eslint": "7.1.1",
     "babel-jest": "18.0.0",
     "babel-loader": "6.2.10",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-app": "^2.2.0",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.20.0",
     "case-sensitive-paths-webpack-plugin": "1.1.4",
     "chalk": "1.1.3",
@@ -69,10 +74,11 @@
   "scripts": {
     "start": "PORT=3005 node scripts/start.js",
     "build": "node scripts/build.js",
+    "lib": "babel src/ --ignore src/index.js --out-dir lib --copy-files",
     "test": "jest",
     "test:watch": "node scripts/test.js --env=jsdom",
     "flow": "flow",
-    "prepublish": "npm run build",
+    "prepublish": "npm run lib",
     "release": "np"
   },
   "eslintConfig": {
