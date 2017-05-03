@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { EditorState, RichUtils, Editor } from 'draft-js';
+import { EditorState, RichUtils } from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
 import customRenderer from '../../utils/customRenderer';
 import { Block } from '../../utils/constants';
 import { Container, EditorContainer } from './styles';
@@ -8,6 +10,9 @@ import decorator from '../../utils/decorator';
 import keyBindings from '../../utils/keyBindings';
 import keyCommands from '../../utils/keyCommands';
 import { insertDataBlock } from '../../utils/blocks';
+import FAB from '../FloatingActionButton';
+
+const plugins = [inlineToolbarPlugin];
 
 type State = {
     editorState: Object
@@ -100,6 +105,13 @@ export default class App extends Component {
                         onTab={this.onTab}
                         keyBindingFn={keyBindings}
                         handleKeyCommand={this.handleKeyCommand}
+                        plugins={plugins}
+                    />
+                    <Toolbar />
+                    <FAB
+                        editorState={editorState}
+                        setEditorState={this.onChange}
+                        focus={this.focus}
                     />
                     <input
                         type="file"
