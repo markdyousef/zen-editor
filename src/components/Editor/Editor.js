@@ -108,7 +108,11 @@ export default class App extends Component {
                         plugins={plugins}
                     />
                     <Toolbar />
-                    <FAB editorState={editorState} setEditorState={this.onChange} />
+                    <FAB
+                        editorState={editorState}
+                        setEditorState={this.onChange}
+                        focus={this.focus}
+                    />
                     <input
                         type="file"
                         accept="image/*"
