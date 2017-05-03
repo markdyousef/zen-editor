@@ -1,15 +1,21 @@
 // @flow
 import React, { Component } from 'react';
-import { EditorState, RichUtils } from 'draft-js';
+import { RichUtils, type EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
 import customRenderer from '../../utils/customRenderer';
-import { Block } from '../../utils/constants';
+import {
+    Block,
+    insertDataBlock,
+    keyCommands,
+    keyBindings,
+    addImage,
+    beforeInput,
+    StringToTypeMap,
+    styleMap
+} from '../../utils';
 import { Container, EditorContainer } from './styles';
-import decorator from '../../utils/decorator';
-import keyBindings from '../../utils/keyBindings';
-import keyCommands from '../../utils/keyCommands';
-import { insertDataBlock } from '../../utils/blocks';
+// import decorator from '../../utils/decorator';
 import FAB from '../FloatingActionButton';
 
 const plugins = [inlineToolbarPlugin];
@@ -17,6 +23,20 @@ const plugins = [inlineToolbarPlugin];
 type State = {
     showUrlInput: bool,
     urlValue: string
+}
+
+type DefaultProps = {
+    addFile: Function
+}
+
+type Props = {
+    editorState: EditorState,
+    onChange: (state: EditorState) => void,
+    addFile?: (file: Object) => void,
+    placeholder?: string,
+    spellCheck?: bool,
+    readOnly?: bool,
+    showFAB?: bool
 }
 
 
@@ -121,11 +141,6 @@ export default class App extends Component<DefaultProps, Props, State> {
                         handleBeforeInput={this.handleBeforeInput}
                     />
                     <Toolbar />
-                    <FAB
-                        editorState={editorState}
-                        setEditorState={this.onChange}
-                        focus={this.focus}
-                    />
                     <input
                         type="file"
                         accept="image/*"
