@@ -6,15 +6,20 @@ npm-debug.log*
 # Coverage directory used by tools like istanbul
 coverage
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary
 build/
+lib/
 
 # Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
 #flow
 flow-typed
 
-#OS
 .DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+.yarnclean

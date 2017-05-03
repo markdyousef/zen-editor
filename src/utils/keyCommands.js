@@ -1,36 +1,48 @@
 // @flow
+import { Block, Inline } from '../utils';
+
 export default (editor:Object, command:string):string => {
     switch (command) {
-    case 'header-one':
+    case Block.H1:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'header-two':
+
+    case Block.H2:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'blockquote':
+
+    case Block.BLOCKQUOTE:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'unordered-list-item':
+
+    case Block.UL:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'ordered-list-item':
+
+    case Block.OL:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'code-block':
+
+    case Block.CODE:
         editor.toggleBlockType(command);
         return 'handled';
-    case 'BOLD':
+
+    case Inline.BOLD:
         editor.toggleInlineStyle(command);
         return 'handled';
-    case 'ITALIC':
+
+    case Inline.ITALIC:
         editor.toggleInlineStyle(command);
         return 'handled';
-    case 'UNDERLINE':
+
+    case Inline.UNDERLINE:
         editor.toggleInlineStyle(command);
         return 'handled';
-    case 'HIGHLIGHT':
+
+    case Inline.HIGHLIGHT:
         editor.toggleInlineStyle(command);
         return 'handled';
+
     default:
         return 'not-handled';
     }

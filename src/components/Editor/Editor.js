@@ -15,38 +15,40 @@ import FAB from '../FloatingActionButton';
 const plugins = [inlineToolbarPlugin];
 
 type State = {
-    editorState: Object
+    showUrlInput: bool,
+    urlValue: string
 }
 
-export default class App extends Component {
+
+export default class App extends Component<DefaultProps, Props, State> {
+    static defaultProps: DefaultProps;
+    state: State;
+    props: Props;
+    editor: Editor;
+    input: Object;
     constructor() {
         super();
         this.state = {
-            editorState: EditorState.createEmpty(decorator),
             showUrlInput: false,
             urlValue: ''
         };
     }
-    state: State
-
-    onChange = (editorState:Object) => this.setState({ editorState })
+    // onChange = (editorState:Object) => this.setState({ editorState })
     onTab = (event:Object) => {
-        const { editorState } = this.state;
+        const { editorState, onChange } = this.props;
         // depth on ul and ol
         const levels = 2;
         const newEditorState = RichUtils.onTab(event, editorState, levels);
         if (newEditorState !== editorState) {
-            this.onChange(newEditorState);
+            onChange(newEditorState);
         }
     };
-    getEditorState = () => this.state.editorState;
-    editor: Editor
     focus = () => this.editor.focus();
     toggleBlockType = (blockType:string) => {
-        const { editorState } = this.state;
+        const { editorState, onChange } = this.props;
         const type = RichUtils.getCurrentBlockType(editorState);
         if (type.indexOf(`${Block.ATOMIC}:`) === 0) return;
-        this.onChange(
+        onChange(
             RichUtils.toggleBlockType(
                 editorState,
                 blockType
@@ -54,8 +56,8 @@ export default class App extends Component {
         );
     }
     toggleInlineStyle = (inlineStyle:string) => {
-        const { editorState } = this.state;
-        this.onChange(
+        const { editorState, onChange } = this.props;
+        onChange(
             RichUtils.toggleInlineStyle(
                 editorState,
                 inlineStyle
@@ -63,7 +65,7 @@ export default class App extends Component {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState } = this.state;
+        const { editorState, onChange } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -71,8 +73,9 @@ export default class App extends Component {
             return 'handled';
         case 'open-url': {
             const src = window.prompt('Enter link: ');
+            if (!src) return 'handled';
             const data = { src, type: 'embed' };
-            this.onChange(insertDataBlock(editorState, data));
+            onChange(insertDataBlock(editorState, data));
             return 'handled';
         }
         default:
@@ -80,32 +83,42 @@ export default class App extends Component {
         }
     }
     handleFileUpload = (event:Object) => {
-        const { editorState } = this.state;
+        const { editorState, onChange, addFile } = this.props;
         event.preventDefault();
         const file = event.target.files[0];
-        // // check file type
-        if (file.type.indexOf('image/') === 0) {
-            const src = URL.createObjectURL(file);
-            const data = { src, type: 'image', display: 'medium' };
-            this.onChange(insertDataBlock(editorState, data));
-        }
+        addImage(onChange, file, editorState)
+            .then(res => addFile(res))
+            .catch(err => console.log(err));
+    }
+    handleBeforeInput = (input: string) => {
+        const { editorState, onChange } = this.props;
+        return beforeInput(editorState, input, onChange, StringToTypeMap);
     }
     render() {
-        const { editorState } = this.state;
+        const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB } = this.props;
         return (
             <Container onClick={this.focus}>
                 <EditorContainer>
+                    {showFAB &&
+                        <FAB
+                            setEditorState={onChange}
+                            editorState={editorState}
+                        />
+                    }
                     <Editor
                         ref={(node) => { this.editor = node; }}
                         editorState={editorState}
-                        spellCheck
-                        placeholder="Write something cool..."
-                        onChange={this.onChange}
-                        blockRendererFn={customRenderer(editorState, this.onChange)}
+                        spellCheck={spellCheck}
+                        placeholder={placeholder}
+                        onChange={onChange}
+                        blockRendererFn={customRenderer(editorState, onChange)}
                         onTab={this.onTab}
                         keyBindingFn={keyBindings}
                         handleKeyCommand={this.handleKeyCommand}
                         plugins={plugins}
+                        readOnly={readOnly}
+                        customStyleMap={styleMap}
+                        handleBeforeInput={this.handleBeforeInput}
                     />
                     <Toolbar />
                     <FAB

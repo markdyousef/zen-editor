@@ -21,6 +21,7 @@ export default class ImageButton extends Component {
         const { setEditorState, editorState, close } = this.props;
         e.preventDefault();
 
+        // TODO: make similar to hot-key upload
         const file = e.target.files[0];
         // // check file type
         if (file.type.indexOf('image/') === 0) {

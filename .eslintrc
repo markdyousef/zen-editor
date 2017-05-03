@@ -12,7 +12,8 @@
     },
     "plugins": [
         "react",
-        "jsx-a11y"
+        "jsx-a11y",
+        "flowtype"
     ],
     "parserOptions": {
         "sourceType": "module"
@@ -28,6 +29,7 @@
         "comma-dangle": ["error", "never"],
         "indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
+        "react/sort-comp": 0,
         "react/jsx-indent": ["error", 4],
         "arrow-body-style": 0,
         "prefer-template": 0,

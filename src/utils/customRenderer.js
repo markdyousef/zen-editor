@@ -7,8 +7,6 @@ import SeparatorBlock from '../components/Blocks/Separator';
 
 export default (editorState:Object, setEditorState:Function) => (contentBlock:Object) => {
     const type = contentBlock.getType();
-    console.log(contentBlock.getType());
-
     // TODO: Image always comes as type.unstyled
     switch (type) {
     case Block.IMAGE:
