@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { RichUtils, type EditorState } from 'draft-js';
+import { RichUtils } from 'draft-js';
+import type { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
 import customRenderer from '../../utils/customRenderer';
