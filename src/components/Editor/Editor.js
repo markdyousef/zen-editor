@@ -119,37 +119,37 @@ export default class App extends Component<DefaultProps, Props, State> {
         const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB } = this.props;
         return (
             <Container onClick={this.focus}>
-                <EditorContainer>
-                    {showFAB &&
-                        <FAB
-                            setEditorState={onChange}
-                            editorState={editorState}
-                        />
-                    }
-                    <Editor
-                        ref={(node) => { this.editor = node; }}
+                {/* <EditorContainer> */}
+                {showFAB &&
+                    <FAB
+                        setEditorState={onChange}
                         editorState={editorState}
-                        spellCheck={spellCheck}
-                        placeholder={placeholder}
-                        onChange={onChange}
-                        blockRendererFn={customRenderer(editorState, onChange)}
-                        onTab={this.onTab}
-                        keyBindingFn={keyBindings}
-                        handleKeyCommand={this.handleKeyCommand}
-                        plugins={plugins}
-                        readOnly={readOnly}
-                        customStyleMap={styleMap}
-                        handleBeforeInput={this.handleBeforeInput}
                     />
-                    <Toolbar />
-                    <input
-                        type="file"
-                        accept="image/*"
-                        ref={(c) => { this.input = c; }}
-                        onChange={this.handleFileUpload}
-                        style={{ display: 'none' }}
-                    />
-                </EditorContainer>
+                }
+                <Editor
+                    ref={(node) => { this.editor = node; }}
+                    editorState={editorState}
+                    spellCheck={spellCheck}
+                    placeholder={placeholder}
+                    onChange={onChange}
+                    blockRendererFn={customRenderer(editorState, onChange)}
+                    onTab={this.onTab}
+                    keyBindingFn={keyBindings}
+                    handleKeyCommand={this.handleKeyCommand}
+                    plugins={plugins}
+                    readOnly={readOnly}
+                    customStyleMap={styleMap}
+                    handleBeforeInput={this.handleBeforeInput}
+                />
+                <Toolbar />
+                <input
+                    type="file"
+                    accept="image/*"
+                    ref={(c) => { this.input = c; }}
+                    onChange={this.handleFileUpload}
+                    style={{ display: 'none' }}
+                />
+                {/* </EditorContainer> */}
             </Container>
         );
     }
