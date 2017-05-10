@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     ${''/* padding: 30px 30px; */}
+    width: 100%;
     box-sizing: border-box;
     position: relative;
     font-family: 'proxima-nova', 'helvetica', 'arial';
