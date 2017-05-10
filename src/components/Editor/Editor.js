@@ -15,7 +15,7 @@ import {
     StringToTypeMap,
     styleMap
 } from '../../utils';
-import { Container, EditorContainer } from './styles';
+import { Container } from './styles';
 // import decorator from '../../utils/decorator';
 import FAB from '../FloatingActionButton';
 
