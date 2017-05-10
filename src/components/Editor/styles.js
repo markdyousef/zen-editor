@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    padding: 30px 30px;
+    ${''/* padding: 30px 30px; */}
+    width: 100%;
     box-sizing: border-box;
     position: relative;
     font-family: 'proxima-nova', 'helvetica', 'arial';
@@ -42,9 +43,9 @@ export const Container = styled.div`
 `;
 
 export const EditorContainer = styled.div`
-    cursor: text;
-    position: relative;
+    ${''/* cursor: text; */}
+    ${''/* position: relative;
     margin: 0 auto;
     margin-top: 10px;
-    max-width: 700px;
+    max-width: 700px; */}
 `;

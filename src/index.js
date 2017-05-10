@@ -27,7 +27,7 @@ class App extends Component {
                     placeholder="Cool"
                     readOnly={false}
                     addFile={this.addFile}
-                    // showFAB
+                    showFAB
                 />
             </div>
         );
