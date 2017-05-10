@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    font-family: 'proxima-nova', 'helvetica', 'arial';
+    font-family: 'Proxima-Nova', 'helvetica', 'arial';
     box-sizing: border-box;
     font-size: 21px;
     color: #131517;
@@ -29,16 +29,18 @@ export const Container = styled.div`
         color: #797C80;
     }
     & ul {
-        padding-left: 0;
-        list-style: none;
+        padding-left: 24px;
+        ${''/* list-style: none; */}
     }
     & ol {
-        padding-left: 0;
-        list-style: none;
+        padding-left: 24px;
+        ${''/* list-style: none; */}
     }
     & li {
         font-size: 21px;
         line-height: 1,78;
+    }::selection {
+        background-color: #B1DFCB;
     }
 `;
 
