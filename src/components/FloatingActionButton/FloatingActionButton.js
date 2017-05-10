@@ -2,11 +2,11 @@
 import React, { Component } from 'react';
 import { EditorState } from 'draft-js';
 import styled from 'styled-components';
-import { boxLayout } from '../../styles/layouts';
 import ImageButton from '../ImageButton';
 import EmbedButton from '../EmbedButton';
 import { getSelectedBlockNode } from '../../utils/display';
 import Icon from '../../icons/plus';
+import Dropdown from './Dropdown';
 
 const Container = styled.div`
     height: 200px;
@@ -16,7 +16,7 @@ const Container = styled.div`
     left: -40px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
     width: 35px;
     height: 35px;
     background-color: #fff;
@@ -24,25 +24,9 @@ const Button = styled.div`
     border: 1px solid #e5e5e5;
     outline: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-const Dropdown = styled.div`
-    width: 200px;
-    ${boxLayout()};
-    z-index: 2;
-    transition: all 0.1s ease;
-    visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
-    cursor: auto;
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        margin-left: -5px;
-    }
+    text-align: center;
+    transition: all .2s ease;
+    padding: 0;
 `;
 
 const ACTION_BUTTONS = [
@@ -170,10 +154,16 @@ export default class FloatingActionButton extends Component<DefaultProps, Props,
 
         return (
             <Container top={top}>
-                <Button onClick={() => this.setState({ isOpen: !isOpen })}>
+                <Button
+                    onClick={() => this.setState({ isOpen: !isOpen })}
+                    style={(isOpen) ? { transform: 'rotate(45deg)' } : null}
+                >
                     <Icon />
                 </Button>
-                <Dropdown isOpen={isOpen}>
+                <Dropdown
+                    isOpen={isOpen}
+                    onClose={() => this.setState({ isOpen: false })}
+                >
                     {ACTION_BUTTONS.map((button) => {
                         const ActionButton = button.component;
                         return (
