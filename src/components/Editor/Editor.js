@@ -15,7 +15,7 @@ import {
     StringToTypeMap,
     styleMap
 } from '../../utils';
-import { Container } from './styles';
+import { Container, EditorContainer } from './styles';
 // import decorator from '../../utils/decorator';
 import FAB from '../FloatingActionButton';
 
@@ -118,9 +118,9 @@ export default class App extends Component<DefaultProps, Props, State> {
     render() {
         const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB } = this.props;
         return (
-            <div>
+            <Container>
                 {this.props.titel}
-                <Container>
+                <EditorContainer>
                     {/* <EditorContainer> */}
                     {showFAB &&
                         <FAB
@@ -154,8 +154,8 @@ export default class App extends Component<DefaultProps, Props, State> {
                         style={{ display: 'none' }}
                     />
                     {/* </EditorContainer> */}
-                </Container>
-            </div>
+                </EditorContainer>
+            </Container>
         );
     }
 }
