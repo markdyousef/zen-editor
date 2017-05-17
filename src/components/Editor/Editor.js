@@ -33,7 +33,7 @@ type DefaultProps = {
 type Props = {
     editorState: EditorState,
     onChange: (state: EditorState) => void,
-    addFile?: (file: Object | string, type?: string) => void,
+    addFile?: (file: Object | string, type?: string) => Promise<>,
     placeholder?: string,
     spellCheck?: bool,
     readOnly?: bool,
@@ -110,16 +110,15 @@ export default class App extends Component<DefaultProps, Props, State> {
         const file = event.target.files[0];
         // if addFile is provided use that
         if (addFile) {
-            addFile(file);
-            return;
+            addFile(file)
+                .then((res) => {
+                    onChange(insertDataBlock(editorState, { ...res }));
+                    this.focus()
+                })
+                .catch(err => console.log(err))
         }
-
-        addImage(onChange, file, editorState)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
     }
     handleLinkUpload = (src: string) => {
-        console.log(src);
         const { editorState, onChange, addFile } = this.props;
         const data = { src, type: 'embed' };
 
@@ -143,6 +142,8 @@ export default class App extends Component<DefaultProps, Props, State> {
                         <FAB
                             setEditorState={onChange}
                             editorState={editorState}
+                            handleLinkUpload={this.handleLinkUpload}
+                            handleFileUpload={this.handleFileUpload}
                         />
                     }
                     <div>
