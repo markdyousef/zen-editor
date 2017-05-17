@@ -44,11 +44,15 @@ const ACTION_BUTTONS = [
     // }
 ];
 
-type DefaultProps = {};
+type DefaultProps = {
+    handleFileUpload: () => void
+};
 type Props = {
     editorState: EditorState,
     focus: () => void,
-    setEditorState: () => void
+    setEditorState: () => void,
+    handleFileUpload?: () => void,
+    handleLinkUpload?: () => void
 };
 type State = {
     isVisible: bool,
@@ -57,7 +61,9 @@ type State = {
 };
 
 export default class FloatingActionButton extends Component<DefaultProps, Props, State> {
-    static defaultProps: DefaultProps;
+    static defaultProps: DefaultProps = {
+        handleFileUpload: () => {}
+    };
     props: Props;
     state: State;
     constructor() {
@@ -148,7 +154,13 @@ export default class FloatingActionButton extends Component<DefaultProps, Props,
     }
     render() {
         const { isOpen, top, isVisible } = this.state;
-        const { editorState, setEditorState, focus } = this.props;
+        const {
+            editorState,
+            setEditorState,
+            focus,
+            handleFileUpload,
+            handleLinkUpload
+        } = this.props;
 
         if (!isVisible) return null;
 
@@ -173,6 +185,8 @@ export default class FloatingActionButton extends Component<DefaultProps, Props,
                                 editorState={editorState}
                                 setEditorState={setEditorState}
                                 close={() => this.setState({ isOpen: !isOpen })}
+                                handleFileUpload={handleFileUpload}
+                                handleLinkUpload={handleLinkUpload}
                             />
                         );
                     })}

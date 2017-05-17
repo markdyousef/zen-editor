@@ -33,7 +33,7 @@ type DefaultProps = {
 type Props = {
     editorState: EditorState,
     onChange: (state: EditorState) => void,
-    addFile?: (file: Object) => void,
+    addFile?: (file: Object | string, type?: string) => void,
     placeholder?: string,
     spellCheck?: bool,
     readOnly?: bool,
@@ -86,7 +86,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange } = this.props;
+        const { editorState, onChange, addFile } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -95,8 +95,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         case 'open-url': {
             const src = window.prompt('Enter link: ');
             if (!src) return 'handled';
-            const data = { src, type: 'embed' };
-            onChange(insertDataBlock(editorState, data));
+            this.handleLinkUpload(src);
             return 'handled';
         }
         default:
@@ -105,11 +104,29 @@ export default class App extends Component<DefaultProps, Props, State> {
     }
     handleFileUpload = (event:Object) => {
         const { editorState, onChange, addFile } = this.props;
+
         event.preventDefault();
         const file = event.target.files[0];
+        // if addFile is provided use that
+        if (addFile) {
+            addFile(file);
+            return;
+        }
+
         addImage(onChange, file, editorState)
-            .then(res => addFile(res))
+            .then(res => console.log(res))
             .catch(err => console.log(err));
+    }
+    handleLinkUpload = (src: string) => {
+        console.log(src);
+        const { editorState, onChange, addFile } = this.props;
+        const data = { src, type: 'embed' };
+
+        if (addFile) {
+            addFile(src, 'embed');
+            return;
+        }
+        onChange(insertDataBlock(editorState, data));
     }
     handleBeforeInput = (input: string) => {
         const { editorState, onChange } = this.props;
@@ -124,6 +141,8 @@ export default class App extends Component<DefaultProps, Props, State> {
                     <FAB
                         setEditorState={onChange}
                         editorState={editorState}
+                        handleFileUpload={this.handleFileUpload}
+                        handleLinkUpload={this.handleLinkUpload}
                     />
                 }
                 <Editor
