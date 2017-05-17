@@ -7,7 +7,7 @@ export const addImage = (onChange: Function, file: Object, editorState: EditorSt
         if (file.type.indexOf('image/') === 0) {
             const src = URL.createObjectURL(file);
             const data = {
-                src,
+                url: src,
                 type: 'image',
                 display: 'medium',
                 name: file.name

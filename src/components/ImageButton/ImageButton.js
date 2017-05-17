@@ -1,34 +1,37 @@
-import React, { Component, PropTypes } from 'react';
-import { insertDataBlock } from '../../utils/blocks';
+// @flow
+import React, { Component } from 'react';
 import Icon from '../../icons/image';
 import ActionIcon from '../ActionIcon';
 
+type DefaultProps = {
+    title: string,
+    close: () => void,
+    handleFileUpload: () => void
+};
 
-export default class ImageButton extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        editorState: PropTypes.shape({
-            _immutable: PropTypes.object
-        }).isRequired,
-        setEditorState: PropTypes.func.isRequired,
-        close: PropTypes.func.isRequired
-    }
+type Props = {
+    title?: string,
+    close: () => void,
+    handleFileUpload: (event: Event) => void
+};
+
+type State = {};
+
+export default class ImageButton extends Component<DefaultProps, Props, State> {
+    static defaultProps: DefaultProps = {
+        handleFileUpload: () => {},
+        close: () => {},
+        title: 'Image'
+    };
+    props: Props;
+    state: State;
     onClick = () => {
         this.input.value = null;
         this.input.click();
     }
-    onChange = (e) => {
-        const { setEditorState, editorState, close } = this.props;
-        e.preventDefault();
-
-        // TODO: make similar to hot-key upload
-        const file = e.target.files[0];
-        // // check file type
-        if (file.type.indexOf('image/') === 0) {
-            const src = URL.createObjectURL(file);
-            const data = { src, type: 'image', display: 'medium' };
-            setEditorState(insertDataBlock(editorState, data));
-        }
+    onChange = (event: Event) => {
+        const { close, handleFileUpload } = this.props;
+        handleFileUpload(event);
         close();
     }
     render() {

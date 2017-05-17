@@ -14,7 +14,7 @@ const ImageBlock = ({ data }:Object) => {
     return (
         <div>
             <Container>
-                <Image role="presentation" src={data.src} />
+                <Image role="presentation" src={data.url} />
             </Container>
         </div>
     );

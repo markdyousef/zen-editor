@@ -20,10 +20,8 @@ class App extends Component {
             files: []
         };
     }
-    addFile = (file: Object) => {
-        const { files } = this.state;
-        files.push(file);
-        this.setState({ files });
+    addFile = (data: Object, type?: string) => {
+        console.log(data);
     }
     render() {
         return (
@@ -34,7 +32,7 @@ class App extends Component {
                     spellCheck
                     placeholder="Cool"
                     readOnly={false}
-                    addFile={this.addFile}
+                    // addFile={this.addFile}
                     showFAB
                 />
             </Container>

@@ -15,7 +15,7 @@ import {
     StringToTypeMap,
     styleMap
 } from '../../utils';
-import { Container } from './styles';
+import { Container, EditorContainer } from './styles';
 // import decorator from '../../utils/decorator';
 import FAB from '../FloatingActionButton';
 
@@ -33,11 +33,12 @@ type DefaultProps = {
 type Props = {
     editorState: EditorState,
     onChange: (state: EditorState) => void,
-    addFile?: (file: Object) => void,
+    addFile?: (file: Object | string, type?: string) => Promise<>,
     placeholder?: string,
     spellCheck?: bool,
     readOnly?: bool,
-    showFAB?: bool
+    showFAB?: bool,
+    title?: Object
 }
 
 
@@ -86,7 +87,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange } = this.props;
+        const { editorState, onChange, addFile } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -95,8 +96,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         case 'open-url': {
             const src = window.prompt('Enter link: ');
             if (!src) return 'handled';
-            const data = { src, type: 'embed' };
-            onChange(insertDataBlock(editorState, data));
+            this.handleLinkUpload(src);
             return 'handled';
         }
         default:
@@ -105,51 +105,77 @@ export default class App extends Component<DefaultProps, Props, State> {
     }
     handleFileUpload = (event:Object) => {
         const { editorState, onChange, addFile } = this.props;
+
         event.preventDefault();
         const file = event.target.files[0];
+        // if addFile is provided use that
+        if (addFile) {
+            addFile(file)
+                .then((res) => {
+                    onChange(insertDataBlock(editorState, { ...res }));
+                    this.focus();
+                })
+                .catch(err => console.log(err));
+            return;
+        }
         addImage(onChange, file, editorState)
-            .then(res => addFile(res))
+            .then(res => this.focus())
             .catch(err => console.log(err));
+    }
+    handleLinkUpload = (src: string) => {
+        const { editorState, onChange, addFile } = this.props;
+        const data = { src, type: 'embed' };
+
+        if (addFile) {
+            addFile(src, 'embed');
+            return;
+        }
+        onChange(insertDataBlock(editorState, data));
     }
     handleBeforeInput = (input: string) => {
         const { editorState, onChange } = this.props;
         return beforeInput(editorState, input, onChange, StringToTypeMap);
     }
     render() {
-        const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB } = this.props;
+        const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB, title } = this.props;
         return (
-            <Container onClick={this.focus}>
-                {/* <EditorContainer> */}
-                {showFAB &&
-                    <FAB
-                        setEditorState={onChange}
-                        editorState={editorState}
+            <Container>
+                {title && title}
+                <EditorContainer>
+                    {showFAB && !readOnly &&
+                        <FAB
+                            setEditorState={onChange}
+                            editorState={editorState}
+                            handleLinkUpload={this.handleLinkUpload}
+                            handleFileUpload={this.handleFileUpload}
+                        />
+                    }
+                    <div>
+                        <Editor
+                            ref={(node) => { this.editor = node; }}
+                            editorState={editorState}
+                            spellCheck={spellCheck}
+                            placeholder={placeholder}
+                            onChange={onChange}
+                            blockRendererFn={customRenderer(editorState, onChange)}
+                            onTab={this.onTab}
+                            keyBindingFn={keyBindings}
+                            handleKeyCommand={this.handleKeyCommand}
+                            plugins={plugins}
+                            readOnly={readOnly}
+                            customStyleMap={styleMap}
+                            handleBeforeInput={this.handleBeforeInput}
+                        />
+                    </div>
+                    <Toolbar />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={(c) => { this.input = c; }}
+                        onChange={this.handleFileUpload}
+                        style={{ display: 'none' }}
                     />
-                }
-                <Editor
-                    ref={(node) => { this.editor = node; }}
-                    editorState={editorState}
-                    spellCheck={spellCheck}
-                    placeholder={placeholder}
-                    onChange={onChange}
-                    blockRendererFn={customRenderer(editorState, onChange)}
-                    onTab={this.onTab}
-                    keyBindingFn={keyBindings}
-                    handleKeyCommand={this.handleKeyCommand}
-                    plugins={plugins}
-                    readOnly={readOnly}
-                    customStyleMap={styleMap}
-                    handleBeforeInput={this.handleBeforeInput}
-                />
-                <Toolbar />
-                <input
-                    type="file"
-                    accept="image/*"
-                    ref={(c) => { this.input = c; }}
-                    onChange={this.handleFileUpload}
-                    style={{ display: 'none' }}
-                />
-                {/* </EditorContainer> */}
+                </EditorContainer>
             </Container>
         );
     }
