@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { EditorState } from 'draft-js';
-import Editor from './components/Editor';
+import Editor from './components/Editor/EditorContainer';
+import initStore from './store/configureStore';
 import { decorator } from './utils';
+
+const store = initStore();
 
 const Container = styled.div`
     ${''/* position: relative; */}
@@ -25,17 +29,19 @@ class App extends Component {
     }
     render() {
         return (
-            <Container>
-                <Editor
-                    editorState={this.state.editorState}
-                    onChange={editorState => this.setState({ editorState })}
-                    spellCheck
-                    placeholder="Cool"
-                    readOnly={false}
-                    // addFile={this.addFile}
-                    showFAB
-                />
-            </Container>
+            <Provider store={store}>
+                <Container>
+                    <Editor
+                        editorState={this.state.editorState}
+                        onChange={editorState => this.setState({ editorState })}
+                        spellCheck
+                        placeholder="Cool"
+                        // readOnly={false}
+                        // addFile={this.addFile}
+                        showFAB
+                    />
+                </Container>
+            </Provider>
         );
     }
 }

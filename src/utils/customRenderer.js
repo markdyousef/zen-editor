@@ -4,6 +4,7 @@ import ImageBlock from '../components/Blocks/Image';
 import EmbedBlock from '../components/Blocks/Embed';
 import AtomicBlock from '../components/Blocks/Atomic';
 import SeparatorBlock from '../components/Blocks/Separator';
+import CodeBlock from '../components/Blocks/CodeBlock';
 
 export default (editorState:Object, setEditorState:Function) => (contentBlock:Object) => {
     const type = contentBlock.getType();
@@ -28,6 +29,11 @@ export default (editorState:Object, setEditorState:Function) => (contentBlock:Ob
                     image: ImageBlock
                 }
             }
+        };
+    case Block.CODE:
+        return {
+            component: CodeBlock,
+            editable: false
         };
     default:
         return null;

@@ -16,6 +16,7 @@ import {
     styleMap
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
+
 // import decorator from '../../utils/decorator';
 import FAB from '../FloatingActionButton';
 
@@ -38,7 +39,8 @@ type Props = {
     spellCheck?: bool,
     readOnly?: bool,
     showFAB?: bool,
-    title?: Object
+    title?: Object,
+    setReadOnly?: () => void
 }
 
 
@@ -48,11 +50,12 @@ export default class App extends Component<DefaultProps, Props, State> {
     props: Props;
     editor: Editor;
     input: Object;
-    constructor() {
+    constructor(props: Props) {
         super();
         this.state = {
             showUrlInput: false,
-            urlValue: ''
+            urlValue: '',
+            readOnly: props.readOnly || false
         };
     }
     // onChange = (editorState:Object) => this.setState({ editorState })
@@ -87,7 +90,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange, addFile } = this.props;
+        const { editorState, onChange, addFile, setReadOnly } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -99,6 +102,11 @@ export default class App extends Component<DefaultProps, Props, State> {
             this.handleLinkUpload(src);
             return 'handled';
         }
+        // code block
+        case Block.CODE:
+            keyCommands(this, command);
+            setReadOnly();
+            return 'handled';
         default:
             return keyCommands(this, command);
         }
@@ -137,7 +145,8 @@ export default class App extends Component<DefaultProps, Props, State> {
         return beforeInput(editorState, input, onChange, StringToTypeMap);
     }
     render() {
-        const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB, title } = this.props;
+        const { editorState, onChange, placeholder, spellCheck, showFAB, title, readOnly } = this.props;
+        console.log(readOnly);
         return (
             <Container>
                 {title && title}
