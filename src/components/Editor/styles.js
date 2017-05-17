@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    width: 100%;
+`;
+
+export const EditorContainer = styled.div`
     ${''/* padding: 30px 30px; */}
     width: 100%;
     box-sizing: border-box;
@@ -42,12 +46,4 @@ export const Container = styled.div`
     }::selection {
         background-color: #B1DFCB;
     }
-`;
-
-export const EditorContainer = styled.div`
-    ${''/* cursor: text; */}
-    ${''/* position: relative;
-    margin: 0 auto;
-    margin-top: 10px;
-    max-width: 700px; */}
 `;
