@@ -113,10 +113,14 @@ export default class App extends Component<DefaultProps, Props, State> {
             addFile(file)
                 .then((res) => {
                     onChange(insertDataBlock(editorState, { ...res }));
-                    this.focus()
+                    this.focus();
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
+            return;
         }
+        addImage(onChange, file, editorState)
+            .then(res => this.focus())
+            .catch(err => console.log(err));
     }
     handleLinkUpload = (src: string) => {
         const { editorState, onChange, addFile } = this.props;
@@ -134,7 +138,6 @@ export default class App extends Component<DefaultProps, Props, State> {
     }
     render() {
         const { editorState, onChange, placeholder, spellCheck, readOnly, showFAB, title } = this.props;
-        console.log(readOnly);
         return (
             <Container>
                 {title && title}
