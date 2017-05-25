@@ -134,10 +134,10 @@ export default class App extends Component<DefaultProps, Props, State> {
         const { editorState, onChange, addFile } = this.props;
         const data = { src, type: 'embed' };
 
-        // if (addFile) {
-        //     addFile(src, 'embed');
-        //     return;
-        // }
+        if (addFile) {
+            addFile(src, 'embed');
+            return;
+        }
         onChange(insertDataBlock(editorState, data));
     }
     handleBeforeInput = (input: string) => {
@@ -148,7 +148,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         const { editorState, onChange, placeholder, spellCheck, showFAB, title, readOnly } = this.props;
         console.log(readOnly);
         return (
-            <Container onClick={this.focus}>
+            <Container>
                 {title && title}
                 <EditorContainer>
                     {showFAB && !readOnly &&
