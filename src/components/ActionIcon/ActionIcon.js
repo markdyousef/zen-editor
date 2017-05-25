@@ -15,11 +15,8 @@ const Button = styled.button`
     margin-bottom: 5px;
     color: ${props => props.active ? actionsColor.textActive : actionsColor.text};
     & svg {
-        padding: 5px;
         border: 1px solid ${actionsColor.text};
         border-radius: 3px;
-        height: 12px;
-        width: 12px;
         margin-right: 5px;
         fill: ${props => props.active ? actionsColor.textActive : actionsColor.text}
     }
