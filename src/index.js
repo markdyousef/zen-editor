@@ -32,8 +32,6 @@ class App extends Component {
             <Provider store={store}>
                 <Container>
                     <Editor
-                        editorState={this.state.editorState}
-                        onChange={editorState => this.setState({ editorState })}
                         spellCheck
                         placeholder="Cool"
                         // readOnly={false}

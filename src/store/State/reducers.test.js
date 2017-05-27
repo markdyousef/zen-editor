@@ -13,5 +13,9 @@ const initialState = Map({
 describe('state reducer', () => {
     it('should return initialState', () => {
         expect(reducer(initialState, {})).toEqual(initialState);
-    })
-})
+    });
+    it('should set editorState', () => {
+        const action = actions.setEditorState();
+        expect(reducer(initialState, action)).not.toEqual(initialState);
+    });
+});

@@ -1,18 +1,20 @@
 // @flow
 import { connect } from 'react-redux';
-import { setReadOnly } from '../../store/Editor/actions';
+import { editor, editorState } from '../../store/actions';
 import Editor from './Editor';
 
 
 const mapStateToProps = (state: Object) => (
     {
-        readOnly: state.editor.readOnly
+        readOnly: state.editor.get('readOnly'),
+        editorState: state.state.get('editorState')
     }
 );
 
 const mapDispatchToProps = (dispatch: Function) => (
     {
-        setReadOnly: () => dispatch(setReadOnly())
+        setReadOnly: () => dispatch(editor.setReadOnly()),
+        onChange: (newState: Object) => dispatch(editorState.setEditorState(newState))
     }
 );
 

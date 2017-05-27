@@ -1,6 +1,6 @@
 // @flow
-import * as types from '../constants';
 import { EditorState } from 'draft-js';
+import * as types from '../constants';
 
 export type Action = {
     type?: string,
@@ -15,3 +15,5 @@ export const setEditorState = (editorState?: EditorState): Action => (
         }
     }
 );
+
+export const cool = {};

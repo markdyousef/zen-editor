@@ -146,7 +146,6 @@ export default class App extends Component<DefaultProps, Props, State> {
     }
     render() {
         const { editorState, onChange, placeholder, spellCheck, showFAB, title, readOnly } = this.props;
-        console.log(readOnly);
         return (
             <Container onClick={this.focus}>
                 {title && title}
