@@ -117,34 +117,11 @@ export default class App extends Component<DefaultProps, Props, State> {
 
         event.preventDefault();
         const file = event.target.files[0];
-        // if addFile is provided use that
-        if (addFile) {
-            addFile(file)
-                .then((res) => {
-                    onChange(addImage(editorState, { ...res }));
-                    this.focus();
-                })
-                .catch(err => console.log(err));
-        }
-        if (file.type.indexOf('image/') === 0) {
-            const src = URL.createObjectURL(file);
-            const data = {
-                url: src,
-                type: 'image',
-                display: 'medium',
-                name: file.name
-            };
-            onChange(addImage(editorState, data));
-        }
+        onChange(addImage(editorState, file, addFile));
     }
     handleLinkUpload = (src: string) => {
         const { editorState, onChange, addFile } = this.props;
         const data = { src, type: 'embed' };
-
-        // if (addFile) {
-        //     addFile(src, 'embed');
-        //     return;
-        // }
         onChange(insertDataBlock(editorState, data));
     }
     handleBeforeInput = (input: string) => {
