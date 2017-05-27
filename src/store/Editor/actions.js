@@ -1,8 +1,9 @@
 // @flow
+import * as types from '../constants';
 
 export const setReadOnly = () => (
     {
-        type: 'READ_ONLY'
+        type: types.READ_ONLY
     }
 );
 

@@ -35,7 +35,7 @@
         "prefer-template": 0,
         "quote-props": [1, "consistent-as-needed"],
         "new-cap": [2, {
-            "capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]
+            "capIsNewExceptions": ["Map", "Set", "List", "Record"]
         }],
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"]

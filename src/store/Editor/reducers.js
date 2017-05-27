@@ -1,12 +1,20 @@
 // @flow
-const initialState = {
-    readOnly: false
-};
+import { Map } from 'immutable';
+import * as types from '../constants';
 
-export default (state = initialState, action) => {
+type Action = {
+    type?: string,
+    data?: Object
+}
+
+const initialState = Map({
+    readOnly: false
+});
+
+export default (state = initialState, action: Action) => {
     switch (action.type) {
-    case 'READ_ONLY':
-        return Object.assign({}, state, { readOnly: !state.readOnly });
+    case types.READ_ONLY:
+        return state.set('readOnly', !state.get('readOnly'));
     default:
         return state;
     }
