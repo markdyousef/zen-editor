@@ -1,11 +1,11 @@
 // @flow
-import { Record } from 'immutable';
+import { Map } from 'immutable';
 import { EditorState } from 'draft-js';
 import reducer from './reducers';
 import * as actions from './actions';
 import * as types from '../constants';
 
-const initialState = Record({
+const initialState = Map({
     isLoading: false,
     editorState: null
 });
