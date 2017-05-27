@@ -1,9 +1,9 @@
 // @flow
-import { Record } from 'immutable';
+import { Map } from 'immutable';
 import * as types from '../constants';
 import type { Action } from './actions';
 
-const initialState = Record({
+const initialState = Map({
     isLoading: false,
     editorState: null
 });
