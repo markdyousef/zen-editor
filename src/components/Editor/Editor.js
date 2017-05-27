@@ -5,12 +5,13 @@ import type { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
 import customRenderer from '../../utils/customRenderer';
+import { addImage } from '../../modifiers';
 import {
     Block,
     insertDataBlock,
     keyCommands,
     keyBindings,
-    addImage,
+    uploadImage,
     beforeInput,
     StringToTypeMap,
     styleMap
@@ -120,15 +121,21 @@ export default class App extends Component<DefaultProps, Props, State> {
         if (addFile) {
             addFile(file)
                 .then((res) => {
-                    onChange(insertDataBlock(editorState, { ...res }));
+                    onChange(addImage(editorState, { ...res }));
                     this.focus();
                 })
                 .catch(err => console.log(err));
-            return;
         }
-        addImage(onChange, file, editorState)
-            .then(res => this.focus())
-            .catch(err => console.log(err));
+        if (file.type.indexOf('image/') === 0) {
+            const src = URL.createObjectURL(file);
+            const data = {
+                url: src,
+                type: 'image',
+                display: 'medium',
+                name: file.name
+            };
+            onChange(addImage(editorState, data));
+        }
     }
     handleLinkUpload = (src: string) => {
         const { editorState, onChange, addFile } = this.props;
@@ -165,7 +172,7 @@ export default class App extends Component<DefaultProps, Props, State> {
                             spellCheck={spellCheck}
                             placeholder={placeholder}
                             onChange={onChange}
-                            blockRendererFn={customRenderer(editorState, onChange)}
+                            blockRendererFn={customRenderer(editorState)}
                             onTab={this.onTab}
                             keyBindingFn={keyBindings}
                             handleKeyCommand={this.handleKeyCommand}

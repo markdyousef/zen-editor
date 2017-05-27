@@ -6,7 +6,7 @@ import { insertDataBlock } from './blocks';
 import decorator from './decorator';
 import styleMap from './styleMap';
 import { beforeInput, StringToTypeMap } from './beforeInput';
-import { addImage } from './upload';
+import uploadImage from './upload';
 
 export {
     customRenderer,
@@ -19,5 +19,5 @@ export {
     styleMap,
     beforeInput,
     StringToTypeMap,
-    addImage
+    uploadImage
 };

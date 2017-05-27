@@ -6,30 +6,35 @@ import AtomicBlock from '../components/Blocks/Atomic';
 import SeparatorBlock from '../components/Blocks/Separator';
 import CodeBlock from '../components/Blocks/CodeBlock';
 
-export default (editorState:Object, setEditorState:Function) => (contentBlock:Object) => {
-    const type = contentBlock.getType();
-    // TODO: Image always comes as type.unstyled
-    switch (type) {
-    case Block.IMAGE:
+const renderAtomic = (editorState, contentBlock) => {
+    const contentState = editorState.getCurrentContent();
+    const entity = contentState.getEntity(contentBlock.getEntityAt(0));
+    if (entity.getType() === 'image') {
         return {
             component: ImageBlock,
-            props: {
-                editorState,
-                setEditorState
-            }
-        };
-    case Block.ATOMIC:
-        return {
-            component: AtomicBlock,
             editable: false,
             props: {
-                components: {
-                    embed: EmbedBlock,
-                    separator: SeparatorBlock,
-                    image: ImageBlock
-                }
+                data: entity.get('data')
             }
         };
+    }
+    return {
+        component: AtomicBlock,
+        editable: false,
+        props: {
+            components: {
+                embed: EmbedBlock,
+                separator: SeparatorBlock
+            }
+        }
+    };
+};
+
+export default (editorState:Object) => (contentBlock:Object) => {
+    const type = contentBlock.getType();
+    switch (type) {
+    case Block.ATOMIC:
+        return renderAtomic(editorState, contentBlock);
     case Block.CODE:
         return {
             component: CodeBlock,

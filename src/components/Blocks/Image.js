@@ -10,20 +10,24 @@ const Image = styled.img`
     max-width: 400px;
 `;
 
-const ImageBlock = ({ data }:Object) => {
+type Props = {
+    blockProps: {
+        data?: {
+            url: string
+        }
+    }
+}
+
+const ImageBlock = ({ blockProps }:Props) => {
+    const { data } = blockProps;
     return (
         <div>
             <Container>
-                <Image role="presentation" src={data.url} />
+                <Image role="presentation" src={data && data.url} />
             </Container>
         </div>
     );
 };
 
-ImageBlock.propTypes = {
-    data: PropTypes.shape({
-        src: PropTypes.string
-    }).isRequired
-};
 
 export default ImageBlock;
