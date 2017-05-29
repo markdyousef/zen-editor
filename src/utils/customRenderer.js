@@ -4,7 +4,7 @@ import ImageBlock from '../components/Blocks/Image';
 import EmbedBlock from '../components/Blocks/Embed';
 import AtomicBlock from '../components/Blocks/Atomic';
 import SeparatorBlock from '../components/Blocks/Separator';
-import CodeBlock from '../components/Blocks/CodeBlock';
+import CodeBlock from '../components/Blocks/CodeBlockContainer';
 
 const renderAtomic = (editorState, contentBlock) => {
     const contentState = editorState.getCurrentContent();
@@ -12,6 +12,15 @@ const renderAtomic = (editorState, contentBlock) => {
     if (entity.getType() === 'image') {
         return {
             component: ImageBlock,
+            editable: false,
+            props: {
+                data: entity.get('data')
+            }
+        };
+    }
+    if (entity.getType() === 'code') {
+        return {
+            component: CodeBlock,
             editable: false,
             props: {
                 data: entity.get('data')
@@ -35,11 +44,6 @@ export default (editorState:Object) => (contentBlock:Object) => {
     switch (type) {
     case Block.ATOMIC:
         return renderAtomic(editorState, contentBlock);
-    case Block.CODE:
-        return {
-            component: CodeBlock,
-            editable: false
-        };
     default:
         return null;
     }

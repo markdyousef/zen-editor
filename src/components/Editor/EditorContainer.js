@@ -1,5 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
+import type { EditorState } from 'draft-js';
 import { editor, editorState } from '../../store/actions';
 import Editor from './Editor';
 
@@ -14,9 +15,10 @@ const mapStateToProps = (state: Object) => (
 const mapDispatchToProps = (dispatch: Function) => (
     {
         setReadOnly: () => dispatch(editor.setReadOnly()),
-        onChange: (newState: Object) => dispatch(editorState.setEditorState(newState)),
-        addImage: (state: Object, file: Object, loaderFn?: Promise) =>
-            dispatch(editorState.addImage(state, file, loaderFn))
+        onChange: (newState: EditorState) => dispatch(editorState.setEditorState(newState)),
+        addImage: (state: EditorState, file: Object, loaderFn?: Promise) =>
+            dispatch(editorState.addImage(state, file, loaderFn)),
+        addCodeBlock: (state: EditorState) => dispatch(editorState.addCodeBlock(state))
     }
 );
 

@@ -41,7 +41,8 @@ type Props = {
     showFAB?: bool,
     title?: Object,
     setReadOnly?: () => void,
-    addImage: (editorState: EditorState, file: Object, loaderFn?: Object) => void
+    addImage: (editorState: EditorState, file: Object, loaderFn?: Object) => void,
+    addCodeBlock: (editorState: EditorState) => void
 }
 
 
@@ -91,7 +92,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange, addFile, setReadOnly } = this.props;
+        const { editorState, onChange, addFile, addCodeBlock, setReadOnly } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -105,7 +106,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         }
         // code block
         case Block.CODE:
-            keyCommands(this, command);
+            addCodeBlock(editorState);
             setReadOnly();
             return 'handled';
         default:
