@@ -5,16 +5,15 @@ import type { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import Toolbar, { inlineToolbarPlugin } from '../Toolbar';
 import customRenderer from '../../utils/customRenderer';
-import { addImage } from '../../modifiers';
 import {
     Block,
     insertDataBlock,
     keyCommands,
     keyBindings,
-    uploadImage,
     beforeInput,
     StringToTypeMap,
-    styleMap
+    styleMap,
+    handleReturn
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
 
@@ -41,7 +40,8 @@ type Props = {
     readOnly?: bool,
     showFAB?: bool,
     title?: Object,
-    setReadOnly?: () => void
+    setReadOnly?: () => void,
+    addImage: (editorState: EditorState, file: Object, loaderFn?: Object) => void
 }
 
 
@@ -113,11 +113,11 @@ export default class App extends Component<DefaultProps, Props, State> {
         }
     }
     handleFileUpload = (event:Object) => {
-        const { editorState, onChange, addFile } = this.props;
+        const { editorState, onChange, addFile, addImage } = this.props;
 
         event.preventDefault();
         const file = event.target.files[0];
-        onChange(addImage(editorState, file, addFile));
+        addImage(editorState, file, addFile);
     }
     handleLinkUpload = (src: string) => {
         const { editorState, onChange, addFile } = this.props;
@@ -157,6 +157,7 @@ export default class App extends Component<DefaultProps, Props, State> {
                             readOnly={readOnly}
                             customStyleMap={styleMap}
                             handleBeforeInput={this.handleBeforeInput}
+                            handleReturn={event => handleReturn(event, editorState, onChange)}
                         />
                     </div>
                     <Toolbar />

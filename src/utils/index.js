@@ -7,6 +7,7 @@ import decorator from './decorator';
 import styleMap from './styleMap';
 import { beforeInput, StringToTypeMap } from './beforeInput';
 import uploadImage from './upload';
+import handleReturn from './handleReturn';
 
 export {
     customRenderer,
@@ -19,5 +20,6 @@ export {
     styleMap,
     beforeInput,
     StringToTypeMap,
-    uploadImage
+    uploadImage,
+    handleReturn
 };
