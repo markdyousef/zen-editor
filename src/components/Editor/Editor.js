@@ -10,10 +10,10 @@ import {
     insertDataBlock,
     keyCommands,
     keyBindings,
-    addImage,
     beforeInput,
     StringToTypeMap,
-    styleMap
+    styleMap,
+    handleReturn
 } from '../../utils';
 import { Container, EditorContainer } from './styles';
 
@@ -40,7 +40,10 @@ type Props = {
     readOnly?: bool,
     showFAB?: bool,
     title?: Object,
-    setReadOnly?: () => void
+    setReadOnly?: () => void,
+    addImage: (editorState: EditorState, file: Object, loaderFn?: Object) => void,
+    addCodeBlock: (editorState: EditorState) => void,
+    addEmbed: (editorState: EditorState, src: string) => void
 }
 
 
@@ -90,7 +93,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange, addFile, setReadOnly } = this.props;
+        const { editorState, addCodeBlock, setReadOnly } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -104,7 +107,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         }
         // code block
         case Block.CODE:
-            keyCommands(this, command);
+            addCodeBlock(editorState);
             setReadOnly();
             return 'handled';
         default:
@@ -112,33 +115,15 @@ export default class App extends Component<DefaultProps, Props, State> {
         }
     }
     handleFileUpload = (event:Object) => {
-        const { editorState, onChange, addFile } = this.props;
+        const { editorState, onChange, addFile, addImage } = this.props;
 
         event.preventDefault();
         const file = event.target.files[0];
-        // if addFile is provided use that
-        if (addFile) {
-            addFile(file)
-                .then((res) => {
-                    onChange(insertDataBlock(editorState, { ...res }));
-                    this.focus();
-                })
-                .catch(err => console.log(err));
-            return;
-        }
-        addImage(onChange, file, editorState)
-            .then(res => this.focus())
-            .catch(err => console.log(err));
+        addImage(editorState, file, addFile);
     }
     handleLinkUpload = (src: string) => {
-        const { editorState, onChange, addFile } = this.props;
-        const data = { src, type: 'embed' };
-
-        // if (addFile) {
-        //     addFile(src, 'embed');
-        //     return;
-        // }
-        onChange(insertDataBlock(editorState, data));
+        const { editorState, addEmbed } = this.props;
+        addEmbed(editorState, src);
     }
     handleBeforeInput = (input: string) => {
         const { editorState, onChange } = this.props;
@@ -146,7 +131,6 @@ export default class App extends Component<DefaultProps, Props, State> {
     }
     render() {
         const { editorState, onChange, placeholder, spellCheck, showFAB, title, readOnly } = this.props;
-        console.log(readOnly);
         return (
             <Container onClick={this.focus}>
                 {title && title}
@@ -166,7 +150,7 @@ export default class App extends Component<DefaultProps, Props, State> {
                             spellCheck={spellCheck}
                             placeholder={placeholder}
                             onChange={onChange}
-                            blockRendererFn={customRenderer(editorState, onChange)}
+                            blockRendererFn={customRenderer(editorState)}
                             onTab={this.onTab}
                             keyBindingFn={keyBindings}
                             handleKeyCommand={this.handleKeyCommand}
@@ -174,6 +158,7 @@ export default class App extends Component<DefaultProps, Props, State> {
                             readOnly={readOnly}
                             customStyleMap={styleMap}
                             handleBeforeInput={this.handleBeforeInput}
+                            handleReturn={event => handleReturn(event, editorState, onChange)}
                         />
                     </div>
                     <Toolbar />

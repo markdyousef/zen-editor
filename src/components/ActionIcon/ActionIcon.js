@@ -9,11 +9,11 @@ const Button = styled.button`
     font-size: 12px;
     display: flex;
     align-items: center;
-    background: ${actionsColor.background};
     border: none;
     outline: none;
     margin-bottom: 5px;
     color: ${props => props.active ? actionsColor.textActive : actionsColor.text};
+    background: none;
     & svg {
         border: 1px solid ${actionsColor.text};
         border-radius: 3px;

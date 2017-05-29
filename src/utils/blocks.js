@@ -27,7 +27,7 @@ export const getCurrentBlock = (editorState:EditorState) => {
 };
 
 // Change the block type of the current block
-export const resetBlockWithType = (editorState: EditorState, newType:string = Block.UNSTYLED, overrides:Object = {}):EditorState => {
+export const resetBlockWithType = (editorState: EditorState, newType:string = Block.UNSTYLED, overrides?:Object = {}):EditorState => {
     const contentState = editorState.getCurrentContent();
     const selectionState = editorState.getSelection();
 

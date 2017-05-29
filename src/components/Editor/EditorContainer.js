@@ -1,18 +1,25 @@
 // @flow
 import { connect } from 'react-redux';
-import { setReadOnly } from '../../store/Editor/actions';
+import type { EditorState } from 'draft-js';
+import { editor, editorState } from '../../store/actions';
 import Editor from './Editor';
 
 
 const mapStateToProps = (state: Object) => (
     {
-        readOnly: state.editor.readOnly
+        readOnly: state.editor.get('readOnly'),
+        editorState: state.state.get('editorState')
     }
 );
 
 const mapDispatchToProps = (dispatch: Function) => (
     {
-        setReadOnly: () => dispatch(setReadOnly())
+        setReadOnly: () => dispatch(editor.setReadOnly()),
+        onChange: (newState: EditorState) => dispatch(editorState.setEditorState(newState)),
+        addImage: (state: EditorState, file: Object, loaderFn?: Promise) =>
+            dispatch(editorState.addImage(state, file, loaderFn)),
+        addCodeBlock: (state: EditorState) => dispatch(editorState.addCodeBlock(state)),
+        addEmbed: (state: EditorState, src: string) => dispatch(editorState.addEmbed(state, src))
     }
 );
 

@@ -1,29 +1,63 @@
 // @flow
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import withAlignment, { AlignmentTool } from './withAlignment';
 
 const Container = styled.div`
     position: relative;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const Image = styled.img`
-    max-width: 400px;
+    border: ${props => props.inFocus ? '3px solid #34B289' : null};
+    border-radius: 3px;
 `;
 
-const ImageBlock = ({ data }:Object) => {
+type Props = {
+    setFocus?: (focus?: bool) => void,
+    alignLeft?: () => void,
+    alignCenter?: () => void,
+    alignRight?: () => void,
+    style?: Object,
+    inFocus?: bool,
+    blockProps: {
+        data?: {
+            url: string
+        }
+    }
+}
+
+const ImageBlock = ({ ...props }:Props) => {
+    const {
+        blockProps: { data },
+        setFocus,
+        inFocus,
+        alignLeft,
+        alignRight,
+        alignCenter,
+        style
+    } = props;
     return (
-        <div>
-            <Container>
-                <Image role="presentation" src={data.url} />
-            </Container>
-        </div>
+        <Container style={style}>
+            <Image
+                role="presentation"
+                src={data && data.url}
+                onClick={setFocus}
+                inFocus={inFocus}
+            />
+            {inFocus &&
+                <AlignmentTool
+                    alignLeft={alignLeft}
+                    alignCenter={alignCenter}
+                    alignRight={alignRight}
+                />
+            }
+        </Container>
     );
 };
 
-ImageBlock.propTypes = {
-    data: PropTypes.shape({
-        src: PropTypes.string
-    }).isRequired
-};
 
-export default ImageBlock;
+export default withAlignment(ImageBlock);
