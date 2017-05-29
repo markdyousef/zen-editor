@@ -27,12 +27,20 @@ const renderAtomic = (editorState, contentBlock) => {
             }
         };
     }
+    if (entity.getType() === 'embed') {
+        return {
+            component: EmbedBlock,
+            editable: false,
+            props: {
+                data: entity.get('data')
+            }
+        };
+    }
     return {
         component: AtomicBlock,
         editable: false,
         props: {
             components: {
-                embed: EmbedBlock,
                 separator: SeparatorBlock
             }
         }
@@ -41,6 +49,7 @@ const renderAtomic = (editorState, contentBlock) => {
 
 export default (editorState:Object) => (contentBlock:Object) => {
     const type = contentBlock.getType();
+    const contentState = editorState.getCurrentContent();
     switch (type) {
     case Block.ATOMIC:
         return renderAtomic(editorState, contentBlock);

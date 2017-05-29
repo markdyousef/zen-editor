@@ -57,3 +57,11 @@ export const addCodeBlock = (editorState: EditorState): Action => {
     };
     return insertBlock(editorState, data);
 };
+
+export const addEmbed = (editorState: EditorState, src: string): Action => {
+    const data = {
+        url: src,
+        type: 'embed'
+    };
+    return insertBlock(editorState, data);
+};

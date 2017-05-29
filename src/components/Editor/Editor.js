@@ -42,7 +42,8 @@ type Props = {
     title?: Object,
     setReadOnly?: () => void,
     addImage: (editorState: EditorState, file: Object, loaderFn?: Object) => void,
-    addCodeBlock: (editorState: EditorState) => void
+    addCodeBlock: (editorState: EditorState) => void,
+    addEmbed: (editorState: EditorState, src: string) => void
 }
 
 
@@ -92,7 +93,7 @@ export default class App extends Component<DefaultProps, Props, State> {
         );
     }
     handleKeyCommand = (command: string) => {
-        const { editorState, onChange, addFile, addCodeBlock, setReadOnly } = this.props;
+        const { editorState, addCodeBlock, setReadOnly } = this.props;
         switch (command) {
         case 'open-finder':
             this.input.value = null;
@@ -121,9 +122,8 @@ export default class App extends Component<DefaultProps, Props, State> {
         addImage(editorState, file, addFile);
     }
     handleLinkUpload = (src: string) => {
-        const { editorState, onChange, addFile } = this.props;
-        const data = { src, type: 'embed' };
-        onChange(insertDataBlock(editorState, data));
+        const { editorState, addEmbed } = this.props;
+        addEmbed(editorState, src);
     }
     handleBeforeInput = (input: string) => {
         const { editorState, onChange } = this.props;

@@ -1,26 +1,35 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
     margin: 5px;
 `;
 
-export default class EmbedBlock extends Component {
-    static propTypes = {
-        data: PropTypes.shape({
-            src: PropTypes.string
-        }).isRequired
+type DefaultProps = {};
+
+type Props = {
+    blockProps: {
+        data?: {
+            url: string
+        }
     }
-    constructor() {
-        super();
-        this.state = {
-            showIframe: false
-        };
+};
+
+type State = {};
+
+export default class EmbedBlock extends Component<DefaultProps, Props, State> {
+    static defaultProps: DefaultProps = {
+        blockProps: {}
+    };
+    state: State = {
+        showIframe: false
     }
+    props: Props;
     componentDidMount() {
         this.renderEmbedly();
     }
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps: Props, prevState: State) {
         const { showIframe } = this.state;
         if (prevState.showIframe !== showIframe && showIframe === true) {
             this.renderEmbedly();
@@ -29,28 +38,28 @@ export default class EmbedBlock extends Component {
     getScript = () => {
         const script = document.createElement('script');
         script.async = true;
-        script.src = '//cdn.embedly.com/widgets/platform.js';
+        script.src = '//cdn.iframe.ly/embed.js?api_key=4d65eb16e6b4e265179567';
         script.onload = () => {
-            window.embedly();
+            window.iframely = window.iframely || {};
         };
         document.body.appendChild(script);
     }
-    // enablePreview = () => {}
     renderEmbedly = () => {
-        if (window.embedly) {
-            window.embedly();
+        if (document.querySelectorAll('[data-iframely-url]').length === 0) return;
+        const iframely = window.iframely || {};
+        const widgets = iframely.widgets || {};
+        if (widgets.load) {
+            widgets.load();
         } else {
             this.getScript();
         }
     }
     render() {
-        const { src } = this.props.data;
+        const { blockProps: { data } } = this.props;
+        const url = (data && data.url) || 'www.clai.io';
         const innerHTML = `
-            <div>
-                <a class="embedly-card" href="${src}" data-card-controls="0" data-card-theme="dark">
-                    Embedded - ${src}
-                </a>
-            </div>
+            <a href="${url}" data-iframely-url>
+            </a>
         `;
         return (
             <Container>

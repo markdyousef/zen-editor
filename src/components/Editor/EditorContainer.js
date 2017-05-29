@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch: Function) => (
         onChange: (newState: EditorState) => dispatch(editorState.setEditorState(newState)),
         addImage: (state: EditorState, file: Object, loaderFn?: Promise) =>
             dispatch(editorState.addImage(state, file, loaderFn)),
-        addCodeBlock: (state: EditorState) => dispatch(editorState.addCodeBlock(state))
+        addCodeBlock: (state: EditorState) => dispatch(editorState.addCodeBlock(state)),
+        addEmbed: (state: EditorState, src: string) => dispatch(editorState.addEmbed(state, src))
     }
 );
 
